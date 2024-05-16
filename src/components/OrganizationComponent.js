@@ -10,6 +10,7 @@ import FrameIcon from '../assets/svg/Frame';
 import ArrowRight from '../assets/svg/ArrowRight';
 import JobsListIcon from '../assets/svg/JobsListIcon';
 
+
 const OrganizationComponent = ({ onNextClick }) => {
   return (
     <View style={styles.containerStyle}>
