@@ -1,6 +1,6 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
-import {appColors} from '../utils/appColors';
+import { appColors } from '../utils/appColors';
 import HomeIcon from '../assets/svg/HomeIcon';
 import OrgIcon from '../assets/svg/OrgIcon';
 import ListIcon from '../assets/svg/ListIcon';
@@ -10,7 +10,8 @@ import FrameIcon from '../assets/svg/Frame';
 import ArrowRight from '../assets/svg/ArrowRight';
 import JobsListIcon from '../assets/svg/JobsListIcon';
 
-const OrganizationComponent = ({onNextClick}) => {
+
+const OrganizationComponent = ({ onNextClick }) => {
   return (
     <View style={styles.containerStyle}>
       <View style={styles.viewStyle}>
