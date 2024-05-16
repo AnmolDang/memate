@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {appColors} from '../utils/appColors';
 import HomeIcon from '../assets/svg/HomeIcon';
@@ -10,7 +10,7 @@ import FrameIcon from '../assets/svg/Frame';
 import ArrowRight from '../assets/svg/ArrowRight';
 import JobsListIcon from '../assets/svg/JobsListIcon';
 
-const OrganizationComponent = () => {
+const OrganizationComponent = ({onNextClick}) => {
   return (
     <View style={styles.containerStyle}>
       <View style={styles.viewStyle}>
@@ -31,10 +31,10 @@ const OrganizationComponent = () => {
           marginHorizontal: 16,
         }}
       />
-      <View style={styles.viewStyle}>
+      <TouchableOpacity style={styles.viewStyle} onPress={() => onNextClick()}>
         <Text style={styles.titleStyle}>TheAd Pty Lmd</Text>
         <ArrowRight />
-      </View>
+      </TouchableOpacity>
     </View>
   );
 };

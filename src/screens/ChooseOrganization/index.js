@@ -4,11 +4,14 @@ import {appColors} from '../../utils/appColors';
 import OrganizationComponent from '../../components/OrganizationComponent';
 import RateStar from '../../assets/svg/RateStar';
 
-const ChooseOrganization = () => {
+const ChooseOrganization = ({navigation}) => {
+  const onNextClick = () => {
+    navigation.navigate('BottomBar');
+  };
   return (
     <View style={styles.containerStyle}>
       <Text style={styles.textStyle}>Choose Organization</Text>
-      <OrganizationComponent />
+      <OrganizationComponent onNextClick={onNextClick} />
       <View style={{justifyContent: 'flex-end', flex: 1}}>
         <View
           style={{

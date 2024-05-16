@@ -17,15 +17,15 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
-        {/* <Stack.Screen name="SplashScreen" component={SplashScreen} /> */}
-        {/* <Stack.Screen name="SignIn" component={SignIn} /> */}
-        {/* <Stack.Screen name="SignInWithEmail" component={SignInWithEmail} /> */}
-        {/* <Stack.Screen name="OtpScreen" component={OtpScreen} /> */}
-        {/* <Stack.Screen
+        <Stack.Screen name="SplashScreen" component={SplashScreen} />
+        <Stack.Screen name="SignIn" component={SignIn} />
+        <Stack.Screen name="SignInWithEmail" component={SignInWithEmail} />
+        <Stack.Screen name="OtpScreen" component={OtpScreen} />
+        <Stack.Screen
           name="ChooseOrganization"
           component={ChooseOrganization}
-        /> */}
-        {/* <Stack.Screen name="BottomBar" component={BottomBar} /> */}
+        />
+        <Stack.Screen name="BottomBar" component={BottomBar} />
         <Stack.Screen name="Menu" component={Menu} />
       </Stack.Navigator>
       {/* <Tabs /> */}

@@ -1,10 +1,15 @@
 import {StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {appColors} from '../../utils/appColors';
 import LogoIcon from '../../assets/svg/LogoIcon';
 import Tabs from '../../navigations/tabs';
 
-const SplashScreen = () => {
+const SplashScreen = ({navigation}) => {
+  useEffect(() => {
+    setTimeout(() => {
+      navigation.navigate('SignIn');
+    }, 2000);
+  }, []);
   return (
     <View style={styles.containerStyle}>
       <View style={styles.logoStyle}>

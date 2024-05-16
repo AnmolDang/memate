@@ -10,7 +10,7 @@ import {appColors} from '../../utils/appColors';
 import LogoIcon from '../../assets/svg/LogoIcon';
 import CheckBox from '@react-native-community/checkbox';
 
-const SignInWithEmail = () => {
+const SignInWithEmail = ({navigation}) => {
   const inputEmailRef = useRef(null);
   const inputPassRef = useRef(null);
   const [isInputFocused, setIsInputFocused] = useState(false);
@@ -60,7 +60,9 @@ const SignInWithEmail = () => {
           onFocus={handlePasswordFocusChange}
           onBlur={handlePasswordFocusChange}
         />
-        <TouchableOpacity style={styles.buttonStyle}>
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          onPress={() => navigation.navigate('ChooseOrganization')}>
           <Text style={{color: appColors.black, fontWeight: '700'}}>
             Sign In
           </Text>
@@ -94,9 +96,11 @@ const SignInWithEmail = () => {
             <Text style={styles.textStyle}>Forgot Password?</Text>
           </View>
         </View>
-        <TouchableOpacity style={styles.signInStyle}>
+        <TouchableOpacity
+          style={styles.signInStyle}
+          onPress={() => navigation.navigate('SignIn')}>
           <Text style={{color: appColors.white, fontWeight: '700'}}>
-            Sign in with Email
+            Sign in with Phone
           </Text>
         </TouchableOpacity>
       </View>

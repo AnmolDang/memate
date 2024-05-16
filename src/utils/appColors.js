@@ -8,4 +8,5 @@ export const appColors = {
   offWhite: '#F7F7F7',
   lightGrey: '#E9EBEE',
   yellow: '#FAF48D',
+  pink: '#E91C72',
 };

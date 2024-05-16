@@ -11,7 +11,7 @@ import LogoIcon from '../../assets/svg/LogoIcon';
 import OTPTextView from 'react-native-otp-textinput';
 import Tabs from '../../navigations/tabs';
 
-const OtpScreen = () => {
+const OtpScreen = ({navigation}) => {
   return (
     <View style={styles.containerStyle}>
       <View style={{marginTop: 150, alignSelf: 'center'}}>
@@ -25,7 +25,9 @@ const OtpScreen = () => {
           offTintColor={appColors.white}
         />
       </View>
-      <TouchableOpacity style={styles.buttonStyle}>
+      <TouchableOpacity
+        style={styles.buttonStyle}
+        onPress={() => navigation.navigate('ChooseOrganization')}>
         <Text style={{color: appColors.black, fontWeight: '700'}}>Sign In</Text>
       </TouchableOpacity>
     </View>

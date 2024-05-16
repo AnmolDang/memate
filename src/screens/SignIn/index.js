@@ -13,7 +13,7 @@ import PhoneInput from 'react-native-phone-input';
 import CountryPicker from 'react-native-country-picker-modal';
 import CheckBox from '@react-native-community/checkbox';
 
-const SignInWithPhone = () => {
+const SignInWithPhone = ({navigation}) => {
   const [phoneNumber, setPhoneNumber] = useState('1');
   const [countryPhoneCode, setCountryPhoneCode] = useState('+1');
   const [countryCode, setCountryCode] = useState('US'); // Assuming default country is US
@@ -78,7 +78,9 @@ const SignInWithPhone = () => {
           />
         )}
 
-        <TouchableOpacity style={styles.buttonStyle}>
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          onPress={() => navigation.navigate('OtpScreen')}>
           <Text style={{color: appColors.black, fontWeight: '700'}}>
             Send Code
           </Text>
@@ -101,7 +103,11 @@ const SignInWithPhone = () => {
           <Text style={{color: appColors.grey}}>Remember Me</Text>
         </View>
       </View>
-      <TouchableOpacity style={styles.signInStyle}>
+      <TouchableOpacity
+        style={styles.signInStyle}
+        onPress={() => {
+          navigation.navigate('SignInWithEmail');
+        }}>
         <Text style={{color: appColors.white, fontWeight: '700'}}>
           Sign in with Email
         </Text>
