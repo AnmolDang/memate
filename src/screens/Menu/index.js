@@ -19,7 +19,7 @@ import MenuProfileIcon from '../../assets/svg/MenuProfileIcon';
 import MenuSettingIcon from '../../assets/svg/MenuSettingIcon';
 import MenuHelpIcon from '../../assets/svg/MenuHelpIcon';
 
-const Menu = () => {
+const Menu = ({navigation}) => {
   return (
     <View style={styles.containerStyle}>
       <View style={styles.headerStyle}>
@@ -28,7 +28,7 @@ const Menu = () => {
           <Text style={styles.usernameStyle}>Username</Text>
           <Text style={styles.smallTextStyle}>Designer</Text>
         </View>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
           <WhiteCrossIcon />
         </TouchableOpacity>
       </View>

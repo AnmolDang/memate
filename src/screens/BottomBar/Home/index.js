@@ -21,7 +21,7 @@ import TaskComponent from '../../../components/TaskComponent';
 
 // const { height, width } = Dimensions.get("window");
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   const [JobsData, setJobsData] = useState([
     {
       number: 23,
@@ -59,7 +59,7 @@ const HomeScreen = () => {
           <TouchableOpacity style={{marginHorizontal: 8}}>
             <CalenderIcon />
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Menu')}>
             <MenuIcon />
           </TouchableOpacity>
         </View>

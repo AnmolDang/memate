@@ -8,7 +8,7 @@ const SplashScreen = ({navigation}) => {
   useEffect(() => {
     setTimeout(() => {
       navigation.navigate('SignIn');
-    }, 2000);
+    }, 3000);
   }, []);
   return (
     <View style={styles.containerStyle}>
