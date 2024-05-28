@@ -1,19 +1,17 @@
 import {
-  Button,
   StyleSheet,
   Text,
-  TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import LogoIcon from '../../assets/svg/LogoIcon';
-import {appColors} from '../../utils/appColors';
+import { appColors } from '../../utils/appColors';
 import PhoneInput from 'react-native-phone-input';
 import CountryPicker from 'react-native-country-picker-modal';
 import CheckBox from '@react-native-community/checkbox';
 
-const SignInWithPhone = ({navigation}) => {
+const SignInWithPhone = ({ navigation }) => {
   const [phoneNumber, setPhoneNumber] = useState('1');
   const [countryPhoneCode, setCountryPhoneCode] = useState('+1');
   const [countryCode, setCountryCode] = useState('US'); // Assuming default country is US
@@ -43,7 +41,7 @@ const SignInWithPhone = ({navigation}) => {
     <View style={styles.containerStyle}>
       <Text style={styles.textStyle}>Sign in</Text>
       <View style={styles.logoStyle}>
-        <View style={{alignItems: 'center', justifyContent: 'center'}}>
+        <View style={{ alignItems: 'center', justifyContent: 'center' }}>
           <LogoIcon width={100} />
         </View>
 
@@ -61,7 +59,7 @@ const SignInWithPhone = ({navigation}) => {
             initialValue={phoneNumber}
             value={phoneNumber}
             onChangePhoneNumber={number => setPhoneNumber(number)}
-            textStyle={{color: 'white'}}
+            textStyle={{ color: 'white' }}
           />
         </View>
 
@@ -81,7 +79,7 @@ const SignInWithPhone = ({navigation}) => {
         <TouchableOpacity
           style={styles.buttonStyle}
           onPress={() => navigation.navigate('OtpScreen')}>
-          <Text style={{color: appColors.black, fontWeight: '700'}}>
+          <Text style={{ color: appColors.black, fontWeight: '700' }}>
             Send Code
           </Text>
         </TouchableOpacity>
@@ -97,10 +95,10 @@ const SignInWithPhone = ({navigation}) => {
             value={toggleCheckBox}
             boxType={'square'}
             lineWidth={2}
-            tintColors={{true: '#FFFFFF', false: '#FFFFFF'}}
+            tintColors={{ true: '#FFFFFF', false: '#FFFFFF' }}
             onValueChange={newValue => setToggleCheckBox(newValue)}
           />
-          <Text style={{color: appColors.grey}}>Remember Me</Text>
+          <Text style={{ color: appColors.grey }}>Remember Me</Text>
         </View>
       </View>
       <TouchableOpacity
@@ -108,7 +106,7 @@ const SignInWithPhone = ({navigation}) => {
         onPress={() => {
           navigation.navigate('SignInWithEmail');
         }}>
-        <Text style={{color: appColors.white, fontWeight: '700'}}>
+        <Text style={{ color: appColors.white, fontWeight: '700' }}>
           Sign in with Email
         </Text>
       </TouchableOpacity>
