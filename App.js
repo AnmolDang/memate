@@ -1,18 +1,20 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
-import { SafeAreaView, StyleSheet, useColorScheme } from 'react-native';
 import SplashScreen from './src/screens/Splash';
 import SignIn from './src/screens/SignIn';
 import SignInWithEmail from './src/screens/SignIn/SignInWithEmail';
 import OtpScreen from './src/screens/Otp';
-import Tabs from './src/navigations/tabs';
 import ChooseOrganization from './src/screens/ChooseOrganization';
 import BottomBar from './src/screens/BottomBar';
-import TaskComponent from './src/components/TaskComponent';
 import Menu from './src/screens/Menu';
 import { Provider } from 'react-redux';
 import store from './src/redux/store';
+import HomeScreen from './src/screens/BottomBar/Home';
+import Profile from './src/screens/Profile/Index';
+import EditProfile from './src/screens/Profile/EditProfile';
+import DeleteAccount from './src/screens/DeleteAccount/DeleteAccount';
+import Setting from './src/screens/Settng/Setting';
 
 const Stack = createNativeStackNavigator();
 const App = () => {
@@ -30,6 +32,11 @@ const App = () => {
           />
           <Stack.Screen name="BottomBar" component={BottomBar} />
           <Stack.Screen name="Menu" component={Menu} />
+          <Stack.Screen name="Profile" component={Profile} />
+          <Stack.Screen name="HomeScreen" component={HomeScreen} />
+          <Stack.Screen name="EditProfile" component={EditProfile} />
+          <Stack.Screen name="DeleteAccount" component={DeleteAccount} />
+          <Stack.Screen name="Setting" component={Setting} />
         </Stack.Navigator>
         {/* <Tabs /> */}
       </NavigationContainer>

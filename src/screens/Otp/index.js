@@ -1,25 +1,23 @@
 import {
   StyleSheet,
   Text,
-  TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
 import React from 'react';
-import {appColors} from '../../utils/appColors';
+import { appColors } from '../../utils/appColors';
 import LogoIcon from '../../assets/svg/LogoIcon';
 import OTPTextView from 'react-native-otp-textinput';
-import Tabs from '../../navigations/tabs';
 
-const OtpScreen = ({navigation}) => {
+const OtpScreen = ({ navigation }) => {
   return (
     <View style={styles.containerStyle}>
-      <View style={{marginTop: 150, alignSelf: 'center'}}>
+      <View style={{ marginTop: 150, alignSelf: 'center' }}>
         <LogoIcon width={100} />
       </View>
       <View style={styles.logoStyle}>
         <OTPTextView
-          containerStyle={{marginTop: 60}}
+          containerStyle={{ marginTop: 60 }}
           textInputStyle={styles.roundedTextInput}
           tintColor={appColors.white}
           offTintColor={appColors.white}
@@ -27,8 +25,8 @@ const OtpScreen = ({navigation}) => {
       </View>
       <TouchableOpacity
         style={styles.buttonStyle}
-        onPress={() => navigation.navigate('ChooseOrganization')}>
-        <Text style={{color: appColors.black, fontWeight: '700'}}>Sign In</Text>
+        onPress={() => navigation.navigate('Profile')}>
+        <Text style={{ color: appColors.black, fontWeight: '700' }}>Sign In</Text>
       </TouchableOpacity>
     </View>
   );
@@ -65,7 +63,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     alignItems: 'center',
   },
-  textStyle: {color: appColors.white, fontWeight: '600'},
+  textStyle: { color: appColors.white, fontWeight: '600' },
   signInStyle: {
     marginHorizontal: 16,
     borderRadius: 24,

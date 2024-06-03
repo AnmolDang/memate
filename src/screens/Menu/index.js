@@ -6,7 +6,7 @@ import {
   View,
 } from 'react-native';
 import React from 'react';
-import {appColors} from '../../utils/appColors';
+import { appColors } from '../../utils/appColors';
 import DummyUserIcon from '../../assets/svg/DummyUserIcon';
 import WhiteCrossIcon from '../../assets/svg/WhiteCrossIcon';
 import MenuJobIcon from '../../assets/svg/MenuJobIcon';
@@ -19,12 +19,12 @@ import MenuProfileIcon from '../../assets/svg/MenuProfileIcon';
 import MenuSettingIcon from '../../assets/svg/MenuSettingIcon';
 import MenuHelpIcon from '../../assets/svg/MenuHelpIcon';
 
-const Menu = ({navigation}) => {
+const Menu = ({ navigation }) => {
   return (
     <View style={styles.containerStyle}>
       <View style={styles.headerStyle}>
         <DummyUserIcon />
-        <View style={{marginLeft: 8, flex: 1}}>
+        <View style={{ marginLeft: 8, flex: 1 }}>
           <Text style={styles.usernameStyle}>Username</Text>
           <Text style={styles.smallTextStyle}>Designer</Text>
         </View>
@@ -42,7 +42,7 @@ const Menu = ({navigation}) => {
             }}>
             <TouchableOpacity style={styles.optionStyle}>
               <MenuJobIcon />
-              <View style={{marginLeft: 16}}>
+              <View style={{ marginLeft: 16 }}>
                 <Text style={styles.mainTextStyle}>Jobs</Text>
                 <Text style={styles.textStyle}>Not Accepted</Text>
               </View>
@@ -50,7 +50,7 @@ const Menu = ({navigation}) => {
             </TouchableOpacity>
             <TouchableOpacity style={styles.optionStyle}>
               <MenuTaskIcon />
-              <View style={{marginLeft: 16}}>
+              <View style={{ marginLeft: 16 }}>
                 <Text style={styles.mainTextStyle}>Tasks</Text>
                 <Text style={styles.textStyle}>Unfinished</Text>
               </View>
@@ -58,14 +58,14 @@ const Menu = ({navigation}) => {
             </TouchableOpacity>
             <TouchableOpacity style={styles.optionStyle}>
               <MenuCalenderIcon />
-              <View style={{marginLeft: 16}}>
+              <View style={{ marginLeft: 16 }}>
                 <Text style={styles.mainTextStyle}>Calender</Text>
                 {/* <Text style={styles.textStyle}>Not Accepted</Text> */}
               </View>
             </TouchableOpacity>
             <TouchableOpacity style={styles.optionStyle}>
               <MenuChatIcon />
-              <View style={{marginLeft: 16}}>
+              <View style={{ marginLeft: 16 }}>
                 <Text style={styles.mainTextStyle}>Chat</Text>
                 <Text style={styles.textStyle}>Not Accepted</Text>
               </View>
@@ -73,21 +73,21 @@ const Menu = ({navigation}) => {
             </TouchableOpacity>
             <TouchableOpacity style={styles.optionStyle}>
               <MenuNewsIcon />
-              <View style={{marginLeft: 16}}>
+              <View style={{ marginLeft: 16 }}>
                 <Text style={styles.mainTextStyle}>News</Text>
                 <Text style={styles.textStyle}>Not Accepted</Text>
               </View>
               <Text style={styles.badgeStyle}>3</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.optionStyle}>
+            <TouchableOpacity style={styles.optionStyle} onPress={() => navigation.navigate('Profile')}>
               <MenuProfileIcon />
-              <View style={{marginLeft: 16}}>
+              <View style={{ marginLeft: 16 }}>
                 <Text style={styles.mainTextStyle}>Profile</Text>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.optionStyle}>
+            <TouchableOpacity style={styles.optionStyle} onPress={() => navigation.navigate('Setting')}>
               <MenuSettingIcon />
-              <View style={{marginLeft: 16}}>
+              <View style={{ marginLeft: 16 }}>
                 <Text style={styles.mainTextStyle}>Setting</Text>
               </View>
             </TouchableOpacity>
@@ -101,7 +101,7 @@ const Menu = ({navigation}) => {
             />
             <TouchableOpacity style={styles.optionStyle}>
               <MenuHelpIcon />
-              <View style={{marginLeft: 16}}>
+              <View style={{ marginLeft: 16 }}>
                 <Text style={styles.mainTextStyle}>Help</Text>
               </View>
             </TouchableOpacity>
@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontFamily: 'SF-Pro',
   },
-  textStyle: {color: appColors.grey, fontWeight: '500'},
+  textStyle: { color: appColors.grey, fontWeight: '500' },
   badgeStyle: {
     backgroundColor: appColors.pink,
     borderRadius: 16,
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
     color: appColors.white,
     fontSize: 12,
   },
-  optionStyle: {flexDirection: 'row', alignItems: 'center', marginTop: 16},
+  optionStyle: { flexDirection: 'row', alignItems: 'center', marginTop: 16 },
   rateTextStyle: {
     color: appColors.white,
     marginLeft: 8,

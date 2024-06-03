@@ -9,4 +9,6 @@ export const appColors = {
   lightGrey: '#E9EBEE',
   yellow: '#FAF48D',
   pink: '#E91C72',
+  borderLightGrey: '#75808A',
+  lightRed: '#FF474C',
 };
