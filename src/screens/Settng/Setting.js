@@ -17,6 +17,7 @@ const Setting = ({ navigation }) => {
 
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
     return (
         <View style={styles.containerStyle}>
             <View style={styles.headerStyle}>

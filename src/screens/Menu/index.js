@@ -56,14 +56,14 @@ const Menu = ({ navigation }) => {
               </View>
               <Text style={styles.badgeStyle}>3</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.optionStyle}>
+            <TouchableOpacity style={styles.optionStyle} onPress={() => navigation.navigate('NewDateAdd')}>
               <MenuCalenderIcon />
               <View style={{ marginLeft: 16 }}>
                 <Text style={styles.mainTextStyle}>Calender</Text>
                 {/* <Text style={styles.textStyle}>Not Accepted</Text> */}
               </View>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.optionStyle}>
+            <TouchableOpacity style={styles.optionStyle} onPress={() => navigation.navigate('Chat')}>
               <MenuChatIcon />
               <View style={{ marginLeft: 16 }}>
                 <Text style={styles.mainTextStyle}>Chat</Text>

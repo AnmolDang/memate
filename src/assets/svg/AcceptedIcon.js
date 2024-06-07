@@ -1,5 +1,6 @@
 import * as React from 'react';
-import Svg, {Rect, Path} from 'react-native-svg';
+import Svg, { Rect, Path } from 'react-native-svg';
+
 const AcceptedIcon = props => (
   <Svg
     width={40}

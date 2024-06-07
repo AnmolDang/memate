@@ -6278,6 +6278,11 @@ react-native-swipe-gestures@^1.0.5:
   resolved "https://registry.npmjs.org/react-native-swipe-gestures/-/react-native-swipe-gestures-1.0.5.tgz"
   integrity sha512-Ns7Bn9H/Tyw278+5SQx9oAblDZ7JixyzeOczcBK8dipQk2pD7Djkcfnf1nB/8RErAmMLL9iXgW0QHqiII8AhKw==
 
+react-native-view-overflow@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.npmjs.org/react-native-view-overflow/-/react-native-view-overflow-0.0.5.tgz"
+  integrity sha512-p/peyU3IC7M84bZEz2K7hpLrKBPUT3W7/+wnXjGw40hX/Iaj0OmOqJI6mJcBUlpcHJvGYbx2OOpPZa4+hwJC6w==
+
 react-native-web@*, react-native-web@0.9.x:
   version "0.9.13"
   resolved "https://registry.npmjs.org/react-native-web/-/react-native-web-0.9.13.tgz"
@@ -6294,7 +6299,7 @@ react-native-web@*, react-native-web@0.9.x:
     prop-types "^15.6.0"
     react-timer-mixin "^0.13.4"
 
-react-native@*, react-native@^0.72.4, "react-native@>= 0.30.0", "react-native@>= 0.62", "react-native@>= 0.64.3", react-native@>=0.69.9, react-native@0.74.0:
+react-native@*, react-native@^0.72.4, "react-native@>= 0.30.0", "react-native@>= 0.62", "react-native@>= 0.64.3", react-native@>=0.41.2, react-native@>=0.69.9, react-native@0.74.0:
   version "0.74.0"
   resolved "https://registry.npmjs.org/react-native/-/react-native-0.74.0.tgz"
   integrity sha512-Vpp9WPmkCm4TUH5YDxwQhqktGVon/yLpjbTgjgLqup3GglOgWagYCX3MlmK1iksIcqtyMJHMEWa+UEzJ3G9T8w==

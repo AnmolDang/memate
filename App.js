@@ -15,6 +15,10 @@ import Profile from './src/screens/Profile/Index';
 import EditProfile from './src/screens/Profile/EditProfile';
 import DeleteAccount from './src/screens/DeleteAccount/DeleteAccount';
 import Setting from './src/screens/Settng/Setting';
+import Unavailability from './src/screens/Unavailability/Unavailability';
+import NewDateAdd from './src/screens/NewDateAdd/NewDateAdd';
+import Chat from './src/screens/Chat/Chat';
+import BellaMeillenia from './src/screens/BellaMeillenia/BellaMeillenia';
 
 const Stack = createNativeStackNavigator();
 const App = () => {
@@ -37,6 +41,10 @@ const App = () => {
           <Stack.Screen name="EditProfile" component={EditProfile} />
           <Stack.Screen name="DeleteAccount" component={DeleteAccount} />
           <Stack.Screen name="Setting" component={Setting} />
+          <Stack.Screen name="Unavailability" component={Unavailability} />
+          <Stack.Screen name="NewDateAdd" component={NewDateAdd} />
+          <Stack.Screen name="Chat" component={Chat} />
+          <Stack.Screen name="BellaMeillenia" component={BellaMeillenia} />
         </Stack.Navigator>
         {/* <Tabs /> */}
       </NavigationContainer>
