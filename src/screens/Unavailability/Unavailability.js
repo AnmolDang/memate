@@ -36,7 +36,7 @@ const Unavailability = ({ navigation }) => {
                     </TouchableOpacity>
                 </View>
             </View>
-            <ScrollView style={{ flex: 1 }} >
+            <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
                 <Text style={styles.confirmStyle}>Add Unavailability</Text>
 
                 <View style={{ marginBottom: 20 }}>

@@ -19,6 +19,9 @@ import EditIcon from '../../assets/svg/EditIcon';
 import AddedDateDeleteIcon from '../../assets/svg/AddedDateDeleteIcon';
 import ClockIcon from '../../assets/svg/ClockIcon';
 import { Picker } from '@react-native-picker/picker';
+import RNPickerSelect from 'react-native-picker-select';
+import DownIcon from '../../assets/svg/DownIcon';
+import WhiteDownIcon from '../../assets/svg/WhiteDownIcon';
 
 
 const NewDateAdd = ({ navigation }) => {
@@ -28,8 +31,8 @@ const NewDateAdd = ({ navigation }) => {
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
     const [selectedWeekValue, setSelectedWeekValue] = useState('Week');
-    const [selectedWeekValue1, setSelectedWeekValue1] = useState('Week');
-    const [selectedWeekValue2, setSelectedWeekValue2] = useState('Week');
+    const [selectedWeekValue1, setSelectedWeekValue1] = useState('Fri');
+    const [selectedWeekValue2, setSelectedWeekValue2] = useState('2 Month');
 
 
     return (
@@ -144,29 +147,27 @@ const NewDateAdd = ({ navigation }) => {
                             />
                         </View>
 
-                        <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 10 }}>
-                            <Text style={{ color: appColors.black, fontSize: 15, flex: 2 }}>Every</Text>
+                        <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 10, justifyContent: 'space-between' }}>
+                            <Text style={{ color: appColors.black, fontSize: 15, }}>Every</Text>
 
-                            <View style={{
-                                marginTop: 5, backgroundColor: '#212528',
-                                borderRadius: 8,
-                                flex: 1
-                            }}>
-                                <Picker
-                                    selectedValue={selectedWeekValue}
-                                    onValueChange={(itemValue) => setSelectedWeekValue(itemValue)}
+                            <View style={styles.pickerContainerBlack}>
+                                <RNPickerSelect
+                                    onValueChange={(value) => setSelectedWeekValue2(value)}
+                                    items={[
+                                        { label: 'Week', value: 'Week' },
+                                        { label: 'Week 1', value: 'Week 1' },
+                                    ]}
+                                    value={selectedWeekValue2}
                                     style={{
-                                        color: appColors.white,
+                                        inputAndroid: styles.pickerColor,
+                                        inputIOS: styles.pickerColor,
+                                        iconContainer: styles.iconContainer,
                                     }}
-                                    dropdownIconColor="#fff"
-                                >
-                                    <Picker.Item label="Week" value="Week" style={{
-                                        fontSize: 14
-                                    }} />
-                                    <Picker.Item label="Month" value="Month" style={{
-                                        fontSize: 14
-                                    }} />
-                                </Picker>
+                                    useNativeAndroidPickerStyle={false}
+                                    placeholder={{}}
+                                    Icon={() => null}
+                                />
+                                <WhiteDownIcon width={20} height={20} style={{ marginTop: 10 }} />
                             </View>
                         </View>
 
@@ -242,55 +243,51 @@ const NewDateAdd = ({ navigation }) => {
                         </ScrollView>
 
                         <View style={{ paddingBottom: 20, borderColor: appColors.lightGrey, borderBottomWidth: 1 }}>
-                            <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 10 }}>
-                                <Text style={{ color: appColors.black, fontSize: 15, flex: 2 }}>Every</Text>
+                            <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 10, justifyContent: 'space-between' }}>
+                                <Text style={{ color: appColors.black, fontSize: 15, }}>On</Text>
 
-                                <View style={{
-                                    marginTop: 5, backgroundColor: '#212528',
-                                    borderRadius: 8,
-                                    flex: 1
-                                }}>
-                                    <Picker
-                                        selectedValue={selectedWeekValue1}
-                                        onValueChange={(itemValue) => setSelectedWeekValue1(itemValue)}
+                                <View style={styles.pickerContainer}>
+                                    <RNPickerSelect
+                                        onValueChange={(value) => setSelectedWeekValue2(value)}
+                                        items={[
+                                            { label: 'Fri', value: 'Fri' },
+                                            { label: 'Mon', value: 'Mon' },
+                                        ]}
+                                        value={selectedWeekValue2}
                                         style={{
-                                            color: appColors.white,
+                                            inputAndroid: styles.picker,
+                                            inputIOS: styles.picker,
+                                            iconContainer: styles.iconContainer,
                                         }}
-                                        dropdownIconColor="#fff"
-                                    >
-                                        <Picker.Item label="Week" value="Week" style={{
-                                            fontSize: 14
-                                        }} />
-                                        <Picker.Item label="Month" value="Month" style={{
-                                            fontSize: 14
-                                        }} />
-                                    </Picker>
+                                        useNativeAndroidPickerStyle={false}
+                                        placeholder={{}}
+                                        Icon={() => null}
+                                    />
+                                    <DownIcon width={20} height={20} style={{ marginTop: 10 }} />
                                 </View>
                             </View>
 
-                            <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 10 }}>
-                                <Text style={{ color: appColors.black, fontSize: 15, flex: 2 }}>Every</Text>
+                            <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 10, justifyContent: 'space-between' }}>
+                                <Text style={{ color: appColors.black, fontSize: 15, }}>End</Text>
 
-                                <View style={{
-                                    marginTop: 5, backgroundColor: '#212528',
-                                    borderRadius: 8,
-                                    flex: 1
-                                }}>
-                                    <Picker
-                                        selectedValue={selectedWeekValue2}
-                                        onValueChange={(itemValue) => setSelectedWeekValue2(itemValue)}
+                                <View style={styles.pickerContainer}>
+                                    <RNPickerSelect
+                                        onValueChange={(value) => setSelectedWeekValue2(value)}
+                                        items={[
+                                            { label: '2 Month', value: '2 Month' },
+                                            { label: '3 Month', value: '3 Month' },
+                                        ]}
+                                        value={selectedWeekValue2}
                                         style={{
-                                            color: appColors.white,
+                                            inputAndroid: styles.picker,
+                                            inputIOS: styles.picker,
+                                            iconContainer: styles.iconContainer,
                                         }}
-                                        dropdownIconColor="#fff"
-                                    >
-                                        <Picker.Item label="Week" value="Week" style={{
-                                            fontSize: 14
-                                        }} />
-                                        <Picker.Item label="Month" value="Month" style={{
-                                            fontSize: 14
-                                        }} />
-                                    </Picker>
+                                        useNativeAndroidPickerStyle={false}
+                                        placeholder={{}}
+                                        Icon={() => null}
+                                    />
+                                    <DownIcon width={20} height={20} style={{ marginTop: 8 }} />
                                 </View>
                             </View>
                         </View>
@@ -495,5 +492,37 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         marginTop: 10,
         fontWeight: '600',
+    },
+    pickerContainer: {
+        marginTop: 5,
+        backgroundColor: appColors.offWhite,
+        borderRadius: 50,
+        paddingHorizontal: 15,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    pickerContainerBlack: {
+        marginTop: 5,
+        backgroundColor: appColors.black,
+        borderRadius: 50,
+        paddingHorizontal: 15,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    picker: {
+        color: appColors.black,
+        fontSize: 14,
+        paddingRight: 30, // Ensure there's enough space for the dropdown icon
+    },
+    pickerColor: {
+        color: appColors.white,
+        fontSize: 14,
+        paddingRight: 30, // Ensure there's enough space for the dropdown icon
+    },
+    iconContainer: {
+        top: 10, // Adjust the position of the icon if necessary
+        right: 12,
     },
 });

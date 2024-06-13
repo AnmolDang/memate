@@ -39,7 +39,7 @@ const Chat = ({ navigation }) => {
                     </TouchableOpacity>
                 </View>
             </View>
-            <ScrollView style={{ flex: 1 }} >
+            <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                     <Text style={{ fontSize: 20, color: appColors.black, fontWeight: '600', flex: 1 }}>Chat</Text>
                     <View>

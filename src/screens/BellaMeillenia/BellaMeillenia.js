@@ -10,13 +10,10 @@ import { appColors } from '../../utils/appColors';
 import WhiteBackIcon from '../../assets/svg/WhiteBackIcon';
 import CalenderIcon from '../../assets/svg/CalenderIcon';
 import MenuIcon from '../../assets/svg/MenuIcon';
-import FrameBoy from '../../assets/svg/FrameBoy';
 import DoubleTick from '../../assets/svg/DoubleTick';
-import SingleTick from '../../assets/svg/SingleTick';
-import BagIcon from '../../assets/svg/BagIcon';
-import GirlFrame from '../../assets/svg/GirlFrame';
-import YellowBagIcon from '../../assets/svg/YellowBagIcon';
 import ChatGirl from '../../assets/svg/ChatGirl';
+import AddCircle from '../../assets/svg/AddCircle';
+import SendIcon from '../../assets/svg/SendIcon';
 
 
 const BellaMeillenia = ({ navigation }) => {
@@ -40,7 +37,7 @@ const BellaMeillenia = ({ navigation }) => {
                     </TouchableOpacity>
                 </View>
             </View>
-            <ScrollView style={{ flex: 1, backgroundColor: appColors.offWhite, paddingHorizontal: 16 }} >
+            <ScrollView style={{ flex: 1, backgroundColor: appColors.offWhite, paddingHorizontal: 16 }} showsVerticalScrollIndicator={false}>
 
                 <Text style={{ textAlign: 'center', marginTop: 20 }}>Monday, 9 April </Text>
 
@@ -63,10 +60,16 @@ const BellaMeillenia = ({ navigation }) => {
                         <View style={{ marginTop: 12 }}>
                             <DoubleTick width={20} height={20} />
                         </View>
-                        <Text style={{ fontSize: 12 }}>18:51</Text>
+                        <Text style={{ fontSize: 12, }}>18:51</Text>
                     </View>
                 </View>
             </ScrollView >
+
+            <View style={styles.chatBox}>
+                <AddCircle width={25} height={25} />
+                <Text style={styles.typingStyle}>Good mor</Text>
+                <SendIcon width={40} height={40} />
+            </View>
         </View >
     );
 };
@@ -113,5 +116,22 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 14,
         borderBottomLeftRadius: 14,
         borderBottomRightRadius: 0,
+    },
+    chatBox: {
+        backgroundColor: appColors.white,
+        paddingHorizontal: 16,
+        paddingTop: 20,
+        paddingBottom: 30,
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    typingStyle: {
+        padding: 10,
+        backgroundColor: appColors.offWhite,
+        fontSize: 14,
+        marginHorizontal: 16,
+        color: appColors.black,
+        borderRadius: 8,
+        width: '70%'
     },
 });
