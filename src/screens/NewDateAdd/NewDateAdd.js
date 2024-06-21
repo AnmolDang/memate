@@ -18,7 +18,6 @@ import AddedDateCalendar from '../../assets/svg/AddedDateCalendar';
 import EditIcon from '../../assets/svg/EditIcon';
 import AddedDateDeleteIcon from '../../assets/svg/AddedDateDeleteIcon';
 import ClockIcon from '../../assets/svg/ClockIcon';
-import { Picker } from '@react-native-picker/picker';
 import RNPickerSelect from 'react-native-picker-select';
 import DownIcon from '../../assets/svg/DownIcon';
 import WhiteDownIcon from '../../assets/svg/WhiteDownIcon';

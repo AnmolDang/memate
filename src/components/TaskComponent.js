@@ -1,6 +1,6 @@
-import {StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import {appColors} from '../utils/appColors';
+import { appColors } from '../utils/appColors';
 import ClockIcon from '../assets/svg/ClockIcon';
 import MapMarkerIcon from '../assets/svg/MapMarkerIcon';
 import StatusIcon from '../assets/svg/StatusIcon';
@@ -50,7 +50,7 @@ const TaskComponent = () => {
             }}>
             <ClockIcon />
             <Text style={styles.headerTextStyle}>2h</Text>
-            <Text style={[styles.headerTextStyle, {marginLeft: 8}]}>$100</Text>
+            <Text style={[styles.headerTextStyle, { marginLeft: 8 }]}>$100</Text>
           </View>
         </View>
         <View
@@ -60,7 +60,7 @@ const TaskComponent = () => {
             marginHorizontal: 16,
           }}
         />
-        <View style={{padding: 16}}>
+        <View style={{ padding: 16 }}>
           <Text
             style={{
               color: appColors.black,
@@ -70,11 +70,11 @@ const TaskComponent = () => {
             }}>
             THE-JB-113-134568
           </Text>
-          <Text style={[styles.headerTextStyle, {marginTop: 8}]}>
+          <Text style={[styles.headerTextStyle, { marginTop: 8 }]}>
             Design Stationary and Company profile and broucher
           </Text>
           <View
-            style={{flexDirection: 'row', marginTop: 8, alignItems: 'center'}}>
+            style={{ flexDirection: 'row', marginTop: 8, alignItems: 'center' }}>
             <MapMarkerIcon />
             <Text
               style={{
@@ -86,7 +86,7 @@ const TaskComponent = () => {
               9/89-97 Jones St, Ultimo NSW 2007, Australia
             </Text>
           </View>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <Text
               style={{
                 marginTop: 8,
@@ -99,7 +99,7 @@ const TaskComponent = () => {
                 fontSize: 12,
               }}>
               09.04.2024 {'  '}
-              <Text style={{color: appColors.placeholderColor}}>09:32</Text>
+              <Text style={{ color: appColors.placeholderColor }}>09:32</Text>
             </Text>
             <View
               style={{
@@ -122,7 +122,7 @@ const TaskComponent = () => {
                 fontSize: 12,
               }}>
               09.04.2024 {'  '}
-              <Text style={{color: appColors.placeholderColor}}>09:32</Text>
+              <Text style={{ color: appColors.placeholderColor }}>09:32</Text>
             </Text>
           </View>
           <View

@@ -70,7 +70,6 @@ const Unavailability = ({ navigation }) => {
                     </View>
                 </View>
 
-
             </ScrollView >
         </View >
     );

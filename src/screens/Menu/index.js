@@ -71,7 +71,7 @@ const Menu = ({ navigation }) => {
               </View>
               <Text style={styles.badgeStyle}>3</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.optionStyle}>
+            <TouchableOpacity style={styles.optionStyle} onPress={() => navigation.navigate('News')}>
               <MenuNewsIcon />
               <View style={{ marginLeft: 16 }}>
                 <Text style={styles.mainTextStyle}>News</Text>
@@ -122,7 +122,7 @@ const Menu = ({ navigation }) => {
             <RateStar />
             <Text style={styles.rateTextStyle}>Rate MeMate</Text>
           </View>
-          <Text style={styles.termsStyle}>Terms and Conditions</Text>
+          <Text style={styles.termsStyle} onPress={() => navigation.navigate('Conditions')} >Terms and Conditions</Text>
         </View>
       </ScrollView>
     </View>

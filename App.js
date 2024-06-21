@@ -19,6 +19,11 @@ import Unavailability from './src/screens/Unavailability/Unavailability';
 import NewDateAdd from './src/screens/NewDateAdd/NewDateAdd';
 import Chat from './src/screens/Chat/Chat';
 import BellaMeillenia from './src/screens/BellaMeillenia/BellaMeillenia';
+import News from './src/screens/News/News';
+import NewsLink from './src/screens/News/NewsLink';
+import Conditions from './src/screens/Conditions/Conditions';
+import JobCard from './src/screens/JobCard/JobCard';
+import JobsScreen from './src/screens/BottomBar/Jobs';
 
 const Stack = createNativeStackNavigator();
 const App = () => {
@@ -35,6 +40,7 @@ const App = () => {
             component={ChooseOrganization}
           />
           <Stack.Screen name="BottomBar" component={BottomBar} />
+          <Stack.Screen name="JobsScreen" component={JobsScreen} />
           <Stack.Screen name="Menu" component={Menu} />
           <Stack.Screen name="Profile" component={Profile} />
           <Stack.Screen name="HomeScreen" component={HomeScreen} />
@@ -45,6 +51,10 @@ const App = () => {
           <Stack.Screen name="NewDateAdd" component={NewDateAdd} />
           <Stack.Screen name="Chat" component={Chat} />
           <Stack.Screen name="BellaMeillenia" component={BellaMeillenia} />
+          <Stack.Screen name="News" component={News} />
+          <Stack.Screen name="NewLink" component={NewsLink} />
+          <Stack.Screen name="Conditions" component={Conditions} />
+          <Stack.Screen name="JobCard" component={JobCard} />
         </Stack.Navigator>
         {/* <Tabs /> */}
       </NavigationContainer>
