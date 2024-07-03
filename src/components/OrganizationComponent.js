@@ -1,11 +1,8 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import { appColors } from '../utils/appColors';
-import HomeIcon from '../assets/svg/HomeIcon';
 import OrgIcon from '../assets/svg/OrgIcon';
 import ListIcon from '../assets/svg/ListIcon';
-import JobsIcon from '../assets/svg/JobsIcon';
-import ListChatIcon from '../assets/svg/ListChatIcon';
 import FrameIcon from '../assets/svg/Frame';
 import ArrowRight from '../assets/svg/ArrowRight';
 import JobsListIcon from '../assets/svg/JobsListIcon';
