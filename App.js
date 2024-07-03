@@ -24,6 +24,15 @@ import NewsLink from './src/screens/News/NewsLink';
 import Conditions from './src/screens/Conditions/Conditions';
 import JobCard from './src/screens/JobCard/JobCard';
 import JobsScreen from './src/screens/BottomBar/Jobs';
+import JobCardConfirmButton from './src/screens/JobCard/JobCardConfirmButton';
+import JobCardSwipeJob from './src/screens/JobCard/JobCardSwipeJob';
+import JobSwipeDone from './src/screens/JobCard/JobSwipeDone';
+import CompleteJob from './src/screens/JobCard/CompleteJob';
+import ApprovedJob from './src/screens/JobCard/ApprovedJob';
+import EditionWork from './src/screens/JobCard/EditionWork';
+import NotCompleteTask from './src/screens/BottomBar/Tasks/NotCompleteTask';
+import CompleteTask from './src/screens/BottomBar/Tasks/CompleteTask';
+import TasksScreen from './src/screens/BottomBar/Tasks';
 
 const Stack = createNativeStackNavigator();
 const App = () => {
@@ -35,10 +44,7 @@ const App = () => {
           <Stack.Screen name="SignIn" component={SignIn} />
           <Stack.Screen name="SignInWithEmail" component={SignInWithEmail} />
           <Stack.Screen name="OtpScreen" component={OtpScreen} />
-          <Stack.Screen
-            name="ChooseOrganization"
-            component={ChooseOrganization}
-          />
+          <Stack.Screen name="ChooseOrganization" component={ChooseOrganization} />
           <Stack.Screen name="BottomBar" component={BottomBar} />
           <Stack.Screen name="JobsScreen" component={JobsScreen} />
           <Stack.Screen name="Menu" component={Menu} />
@@ -55,6 +61,15 @@ const App = () => {
           <Stack.Screen name="NewLink" component={NewsLink} />
           <Stack.Screen name="Conditions" component={Conditions} />
           <Stack.Screen name="JobCard" component={JobCard} />
+          <Stack.Screen name="JobCardConfirmButton" component={JobCardConfirmButton} />
+          <Stack.Screen name="JobCardSwipeJob" component={JobCardSwipeJob} />
+          <Stack.Screen name="JobSwipeDone" component={JobSwipeDone} />
+          <Stack.Screen name="CompleteJob" component={CompleteJob} />
+          <Stack.Screen name="ApprovedJob" component={ApprovedJob} />
+          <Stack.Screen name="EditionWork" component={EditionWork} />
+          <Stack.Screen name="TasksScreen" component={TasksScreen} />
+          <Stack.Screen name="NotCompleteTask" component={NotCompleteTask} />
+          <Stack.Screen name="CompleteTask" component={CompleteTask} />
         </Stack.Navigator>
         {/* <Tabs /> */}
       </NavigationContainer>

@@ -48,7 +48,7 @@ const JobsScreen = ({ navigation }) => {
         <Text style={styles.headStyle}>Jobs</Text>
 
         <View style={{ flexDirection: 'row', marginBottom: 10, gap: 10 }}>
-          <View onPress={() => setInActive(0)} style={{
+          <TouchableOpacity onPress={() => setInActive(0)} style={{
             flexDirection: 'row',
             backgroundColor: active === 0 ? appColors.black : appColors.white,
             alignItems: 'center',
@@ -72,9 +72,9 @@ const JobsScreen = ({ navigation }) => {
             <Text style={{
               borderWidth: 1, fontSize: 12, paddingHorizontal: 5, borderRadius: 50, borderColor: appColors.white, color: appColors.white, backgroundColor: active === 0 ? appColors.black : appColors.grey, textAlign: 'center'
             }}>23</Text>
-          </View>
+          </TouchableOpacity>
 
-          <View onPress={() => setInActive(1)} style={{
+          <TouchableOpacity onPress={() => setInActive(1)} style={{
             flexDirection: 'row',
             backgroundColor: active === 1 ? appColors.black : appColors.white,
             alignItems: 'center',
@@ -98,9 +98,9 @@ const JobsScreen = ({ navigation }) => {
             <Text style={{
               borderWidth: 1, fontSize: 12, paddingHorizontal: 5, borderRadius: 50, borderColor: appColors.white, color: appColors.white, backgroundColor: active === 1 ? appColors.black : appColors.grey, textAlign: 'center'
             }}>23</Text>
-          </View>
+          </TouchableOpacity>
 
-          <View onPress={() => setInActive(2)} style={{
+          <TouchableOpacity onPress={() => setInActive(2)} style={{
             flexDirection: 'row',
             backgroundColor: active === 2 ? appColors.black : appColors.white,
             alignItems: 'center',
@@ -124,12 +124,12 @@ const JobsScreen = ({ navigation }) => {
             <Text style={{
               borderWidth: 1, fontSize: 12, paddingHorizontal: 5, borderRadius: 50, borderColor: appColors.white, color: appColors.white, backgroundColor: active === 2 ? appColors.black : appColors.grey, textAlign: 'center'
             }}>23</Text>
-          </View>
+          </TouchableOpacity>
 
         </View>
         <View style={{ flexDirection: 'row', gap: 10 }}>
 
-          <View onPress={() => setInActive(3)} style={{
+          <TouchableOpacity onPress={() => setInActive(3)} style={{
             flexDirection: 'row',
             backgroundColor: active === 3 ? appColors.black : appColors.white,
             alignItems: 'center',
@@ -153,9 +153,9 @@ const JobsScreen = ({ navigation }) => {
             <Text style={{
               borderWidth: 1, fontSize: 12, paddingHorizontal: 5, borderRadius: 50, borderColor: appColors.white, color: appColors.white, backgroundColor: active === 3 ? appColors.black : appColors.grey, textAlign: 'center'
             }}>23</Text>
-          </View>
+          </TouchableOpacity>
 
-          <View onPress={() => setInActive(4)} style={{
+          <TouchableOpacity onPress={() => setInActive(4)} style={{
             flexDirection: 'row',
             backgroundColor: active === 4 ? appColors.black : appColors.white,
             alignItems: 'center',
@@ -179,7 +179,7 @@ const JobsScreen = ({ navigation }) => {
             <Text style={{
               borderWidth: 1, fontSize: 12, paddingHorizontal: 5, borderRadius: 50, borderColor: appColors.white, color: appColors.white, backgroundColor: active === 4 ? appColors.black : appColors.grey, textAlign: 'center'
             }}>23</Text>
-          </View>
+          </TouchableOpacity>
         </View>
 
         <View style={{ marginTop: 15, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -187,153 +187,155 @@ const JobsScreen = ({ navigation }) => {
           <AllJobsIcon width={40} height={40} />
         </View>
 
-        <View style={styles.shiftCard}>
-          <View style={styles.viewStyle}>
-            <View style={styles.headerViewStyle}>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  backgroundColor: appColors.yellow,
-                  alignItems: 'center',
-                  borderRadius: 16,
-                }}>
-                <Text
-                  style={{
-                    backgroundColor: appColors.yellow,
-                    paddingLeft: 8,
-                    paddingVertical: 3,
-                    color: appColors.black,
-                    borderRadius: 16,
-                    fontSize: 12,
-                  }}>
-                  Shift
-                </Text>
-                <Text
-                  style={{
-                    backgroundColor: appColors.white,
-                    marginLeft: 4,
-                    marginRight: 4,
-                    borderTopRightRadius: 8,
-                    borderBottomRightRadius: 8,
-                    paddingHorizontal: 4,
-                    fontSize: 12,
-                  }}>
-                  Fix
-                </Text>
-              </View>
-              <View
-                style={{
-                  flex: 1,
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  justifyContent: 'flex-end',
-                }}>
-                <ClockIcon />
-                <Text style={styles.headerTextStyle}>2h</Text>
-                <Text style={[styles.headerTextStyle, { marginLeft: 8 }]}>$100</Text>
-              </View>
-            </View>
-            <View
-              style={{
-                height: 1,
-                backgroundColor: appColors.lightGrey,
-                marginHorizontal: 16,
-              }}
-            />
-            <View style={{ padding: 16 }}>
-              <Text
-                style={{
-                  color: appColors.black,
-                  fontSize: 12,
-                  fontFamily: 'SF-Pro',
-                  fontWeight: '600',
-                }}>
-                THE-JB-113-134568
-              </Text>
-              <Text style={[styles.headerTextStyle, { marginTop: 8 }]}>
-                SMM | theAd Tempaltes
-              </Text>
-              <View
-                style={{ flexDirection: 'row', marginTop: 8, alignItems: 'center' }}>
-                <MapMarkerIcon />
-                <Text
-                  style={{
-                    color: appColors.placeholderColor,
-                    fontFamily: 'SF-Pro',
-                    fontWeight: 700,
-                    fontSize: 12,
-                  }}>
-                  9/89-97 Jones St, Ultimo NSW 2007, Australia
-                </Text>
-              </View>
-              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <Text
-                  style={{
-                    marginTop: 8,
-                    paddingVertical: 4,
-                    backgroundColor: appColors.white,
-                    paddingHorizontal: 8,
-                    borderRadius: 16,
-                    color: appColors.black,
-                    fontWeight: '600',
-                    fontSize: 12,
-                  }}>
-                  09.04.2024 {'  '}
-                  <Text style={{ color: appColors.placeholderColor }}>09:32</Text>
-                </Text>
+        <TouchableOpacity onPress={() => navigation.navigate('JobCard')}>
+          <View style={styles.shiftCard}>
+            <View style={styles.viewStyle}>
+              <View style={styles.headerViewStyle}>
                 <View
                   style={{
-                    width: 10,
-                    backgroundColor: appColors.placeholderColor,
-                    height: 1.5,
-                    marginHorizontal: 5,
-                    marginTop: 8,
-                  }}
-                />
-                <Text
-                  style={{
-                    marginTop: 8,
-                    paddingVertical: 4,
-                    backgroundColor: appColors.white,
-                    paddingHorizontal: 8,
+                    flexDirection: 'row',
+                    backgroundColor: appColors.yellow,
+                    alignItems: 'center',
                     borderRadius: 16,
-                    color: appColors.black,
-                    fontWeight: '600',
-                    fontSize: 12,
                   }}>
-                  09.04.2024 {'  '}
-                  <Text style={{ color: appColors.placeholderColor }}>09:32</Text>
-                </Text>
+                  <Text
+                    style={{
+                      backgroundColor: appColors.yellow,
+                      paddingLeft: 8,
+                      paddingVertical: 3,
+                      color: appColors.black,
+                      borderRadius: 16,
+                      fontSize: 12,
+                    }}>
+                    Shift
+                  </Text>
+                  <Text
+                    style={{
+                      backgroundColor: appColors.white,
+                      marginLeft: 4,
+                      marginRight: 4,
+                      borderTopRightRadius: 8,
+                      borderBottomRightRadius: 8,
+                      paddingHorizontal: 4,
+                      fontSize: 12,
+                    }}>
+                    Fix
+                  </Text>
+                </View>
+                <View
+                  style={{
+                    flex: 1,
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'flex-end',
+                  }}>
+                  <ClockIcon />
+                  <Text style={styles.headerTextStyle}>2h</Text>
+                  <Text style={[styles.headerTextStyle, { marginLeft: 8 }]}>$100</Text>
+                </View>
               </View>
               <View
                 style={{
                   height: 1,
                   backgroundColor: appColors.lightGrey,
-                  marginTop: 16,
+                  marginHorizontal: 16,
                 }}
               />
-              <View
-                style={{
-                  flexDirection: 'row',
-                  marginTop: 16,
-                  alignItems: 'center',
-                  marginBottom: 16,
-                }}>
-                <StatusIcon />
+              <View style={{ padding: 16 }}>
                 <Text
                   style={{
-                    marginLeft: 8,
                     color: appColors.black,
-                    fontFamily: 'SF-Pro',
                     fontSize: 12,
-                    fontWeight: '700',
+                    fontFamily: 'SF-Pro',
+                    fontWeight: '600',
                   }}>
-                  In Progress
+                  THE-JB-113-134568
                 </Text>
+                <Text style={[styles.headerTextStyle, { marginTop: 8 }]}>
+                  SMM | theAd Tempaltes
+                </Text>
+                <View
+                  style={{ flexDirection: 'row', marginTop: 8, alignItems: 'center' }}>
+                  <MapMarkerIcon />
+                  <Text
+                    style={{
+                      color: appColors.placeholderColor,
+                      fontFamily: 'SF-Pro',
+                      fontWeight: 700,
+                      fontSize: 12,
+                    }}>
+                    9/89-97 Jones St, Ultimo NSW 2007, Australia
+                  </Text>
+                </View>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                  <Text
+                    style={{
+                      marginTop: 8,
+                      paddingVertical: 4,
+                      backgroundColor: appColors.white,
+                      paddingHorizontal: 8,
+                      borderRadius: 16,
+                      color: appColors.black,
+                      fontWeight: '600',
+                      fontSize: 12,
+                    }}>
+                    09.04.2024 {'  '}
+                    <Text style={{ color: appColors.placeholderColor }}>09:32</Text>
+                  </Text>
+                  <View
+                    style={{
+                      width: 10,
+                      backgroundColor: appColors.placeholderColor,
+                      height: 1.5,
+                      marginHorizontal: 5,
+                      marginTop: 8,
+                    }}
+                  />
+                  <Text
+                    style={{
+                      marginTop: 8,
+                      paddingVertical: 4,
+                      backgroundColor: appColors.white,
+                      paddingHorizontal: 8,
+                      borderRadius: 16,
+                      color: appColors.black,
+                      fontWeight: '600',
+                      fontSize: 12,
+                    }}>
+                    09.04.2024 {'  '}
+                    <Text style={{ color: appColors.placeholderColor }}>09:32</Text>
+                  </Text>
+                </View>
+                <View
+                  style={{
+                    height: 1,
+                    backgroundColor: appColors.lightGrey,
+                    marginTop: 16,
+                  }}
+                />
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    marginTop: 16,
+                    alignItems: 'center',
+                    marginBottom: 16,
+                  }}>
+                  <StatusIcon />
+                  <Text
+                    style={{
+                      marginLeft: 8,
+                      color: appColors.black,
+                      fontFamily: 'SF-Pro',
+                      fontSize: 12,
+                      fontWeight: '700',
+                    }}>
+                    In Progress
+                  </Text>
+                </View>
               </View>
             </View>
           </View>
-        </View>
+        </TouchableOpacity>
 
       </ScrollView >
     </View >

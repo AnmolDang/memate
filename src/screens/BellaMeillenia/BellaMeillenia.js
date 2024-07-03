@@ -2,6 +2,7 @@ import {
     ScrollView,
     StyleSheet,
     Text,
+    TextInput,
     TouchableOpacity,
     View,
 } from 'react-native';
@@ -67,9 +68,22 @@ const BellaMeillenia = ({ navigation }) => {
 
             <View style={styles.chatBox}>
                 <AddCircle width={25} height={25} />
-                <Text style={styles.typingStyle}>Good mor</Text>
+                <TextInput
+                    style={{
+                        padding: 10,
+                        backgroundColor: appColors.offWhite,
+                        fontSize: 14,
+                        marginHorizontal: 16,
+                        color: appColors.black,
+                        borderRadius: 8,
+                        width: "70%"
+                    }}
+                    placeholder="Good morning"
+                    placeholderTextColor={appColors.black}
+                />
                 <SendIcon width={40} height={40} />
             </View>
+
         </View >
     );
 };
@@ -124,6 +138,7 @@ const styles = StyleSheet.create({
         paddingBottom: 30,
         flexDirection: 'row',
         alignItems: 'center',
+        justifyContent: 'space-between'
     },
     typingStyle: {
         padding: 10,
@@ -132,6 +147,6 @@ const styles = StyleSheet.create({
         marginHorizontal: 16,
         color: appColors.black,
         borderRadius: 8,
-        width: '70%'
+        width: '70%',
     },
 });

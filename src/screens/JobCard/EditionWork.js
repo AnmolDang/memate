@@ -4,19 +4,23 @@ import {
     Text,
     TouchableOpacity,
     View,
+    TextInput
 } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import { appColors } from '../../utils/appColors';
 import WhiteBackIcon from '../../assets/svg/WhiteBackIcon';
 import CalenderIcon from '../../assets/svg/CalenderIcon';
 import MenuIcon from '../../assets/svg/MenuIcon';
 import NotificationIcon from '../../assets/svg/NotificationIcon';
-import SettingIcon from '../../assets/svg/SettingIcon';
 import CopyIcon from '../../assets/svg/CopyIcon';
 import Map2 from '../../assets/svg/Map2';
 import DocumentIcon from '../../assets/svg/DocumentIcon';
+import WorkIcon from '../../assets/svg/WorkIcon';
+import AddCircle from '../../assets/svg/AddCircle';
+import SendIcon from '../../assets/svg/SendIcon';
+import RefreshIcon from '../../assets/svg/RefreshIcon';
 
-const JobCard = ({ navigation }) => {
+const EditionWork = ({ navigation }) => {
 
     return (
         <View style={styles.containerStyle}>
@@ -41,6 +45,8 @@ const JobCard = ({ navigation }) => {
                 </View>
             </View>
             <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
+
+                <Text style={styles.startJobButton}>Start the Job</Text>
 
                 <View style={styles.headerViewStyle}>
                     <View
@@ -78,8 +84,8 @@ const JobCard = ({ navigation }) => {
                         style={{
                             flexDirection: 'row',
                         }}>
-                        <SettingIcon width={20} height={20} />
-                        <Text style={styles.headerTextStyle}>Not confirmed</Text>
+                        <RefreshIcon width={20} height={20} />
+                        <Text style={styles.headerTextStyle}>Required edition work</Text>
                     </View>
                 </View>
 
@@ -174,13 +180,45 @@ const JobCard = ({ navigation }) => {
                     <Text style={{ color: appColors.black, }}>Brief.pdf</Text>
                 </View>
 
-                <View style={{ alignItems: 'flex-end', marginBottom: 20 }}>
-                    <Text style={{ marginTop: 4, borderBottomWidth: 1, borderColor: appColors.black, color: appColors.black }}>History Log</Text>
+                <View style={{ alignItems: 'center', justifyContent: 'flex-end', flexDirection: 'row', flex: 1 }}>
+                    <Text style={{ color: appColors.white, marginLeft: 6, borderRadius: 24, paddingHorizontal: 20, paddingVertical: 12, backgroundColor: appColors.black, marginBottom: 10, marginTop: 16 }}>
+                        Start Chat
+                    </Text>
                 </View>
 
-                <View style={{ flexDirection: 'row', gap: 10, marginBottom: 10 }}>
-                    <Text style={styles.declineButton} onPress={() => navigation.goBack()}>Decline</Text>
-                    <Text style={styles.confirmButton} onPress={() => navigation.navigate('JobCardConfirmButton')}>Confirm</Text>
+                <Text style={{ color: appColors.black, fontWeight: '600', fontSize: 18, marginBottom: 10 }}>Notes</Text>
+
+                <View style={{ marginBottom: 4 }}>
+                    <View style={styles.noteCardStyle}>
+                        <Text style={{ color: appColors.black, fontWeight: '600', marginBottom: 4 }}>The work is complete. I am sending a photo, please look and evaluate the result</Text>
+                        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                            <WorkIcon width={32} height={32} />
+                            <Text style={{ color: appColors.black, marginLeft: 10 }}>Completed work.jpg</Text>
+                        </View>
+                    </View>
+                    <Text style={{ fontSize: 12, fontWeight: '600', textAlign: 'right', marginTop: 10 }}>18:51</Text>
+                </View>
+
+                <View style={styles.chatBox}>
+                    <AddCircle width={25} height={25} />
+                    <TextInput
+                        style={{
+                            padding: 10,
+                            backgroundColor: appColors.offWhite,
+                            fontSize: 14,
+                            marginHorizontal: 16,
+                            color: appColors.black,
+                            borderRadius: 8,
+                            width: "70%"
+                        }}
+                        placeholder="Good morning"
+                        placeholderTextColor={appColors.black}
+                    />
+                    <SendIcon width={40} height={40} />
+                </View>
+
+                <View style={{ alignItems: 'flex-end', marginTop: 6 }}>
+                    <Text style={{ marginTop: 4, borderBottomWidth: 1, borderColor: appColors.black, color: appColors.black }}>History Log</Text>
                 </View>
 
             </ScrollView >
@@ -188,7 +226,7 @@ const JobCard = ({ navigation }) => {
     );
 };
 
-export default JobCard;
+export default EditionWork;
 
 const styles = StyleSheet.create({
     containerStyle: {
@@ -208,10 +246,19 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         fontSize: 16
     },
+    startJobButton: {
+        backgroundColor: appColors.black,
+        padding: 16,
+        textAlign: 'center',
+        borderRadius: 24,
+        color: appColors.white,
+        fontWeight: '600',
+        fontSize: 16,
+        marginBottom: 16
+    },
     headerViewStyle: {
         flexDirection: 'row',
-        marginTop: 10,
-        marginBottom: 15,
+        marginBottom: 16,
         justifyContent: 'space-between',
         alignItems: 'center'
     },
@@ -220,6 +267,17 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         color: appColors.black,
         fontFamily: 'SF-Pro',
+    },
+    tamingStyle: {
+        borderWidth: 1,
+        borderColor: appColors.black,
+        paddingHorizontal: 8,
+        paddingVertical: 2,
+        fontSize: 10,
+        fontWeight: '600',
+        borderRadius: 24,
+        marginLeft: 6,
+        color: appColors.black
     },
     headStyle: {
         fontSize: 20,
@@ -273,5 +331,20 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         padding: 12,
         borderRadius: 30
+    },
+    noteCardStyle: {
+        backgroundColor: appColors.lightGrey,
+        padding: 14,
+        borderRadius: 24,
+        borderBottomRightRadius: 0
+    },
+    chatBox: {
+        paddingTop: 20,
+        paddingBottom: 16,
+        flexDirection: 'row',
+        alignItems: 'center',
+        borderBottomWidth: 1,
+        borderColor: appColors.lightGrey,
+        justifyContent: 'space-between'
     },
 });

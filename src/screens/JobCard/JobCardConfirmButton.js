@@ -11,12 +11,12 @@ import WhiteBackIcon from '../../assets/svg/WhiteBackIcon';
 import CalenderIcon from '../../assets/svg/CalenderIcon';
 import MenuIcon from '../../assets/svg/MenuIcon';
 import NotificationIcon from '../../assets/svg/NotificationIcon';
-import SettingIcon from '../../assets/svg/SettingIcon';
 import CopyIcon from '../../assets/svg/CopyIcon';
 import Map2 from '../../assets/svg/Map2';
 import DocumentIcon from '../../assets/svg/DocumentIcon';
+import ConfirmIcon from '../../assets/svg/ConfirmIcon';
 
-const JobCard = ({ navigation }) => {
+const JobCardConfirmButton = ({ navigation }) => {
 
     return (
         <View style={styles.containerStyle}>
@@ -41,6 +41,8 @@ const JobCard = ({ navigation }) => {
                 </View>
             </View>
             <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
+
+                <Text style={styles.startJobButton} onPress={() => navigation.navigate('JobCardSwipeJob')}>Start the Job</Text>
 
                 <View style={styles.headerViewStyle}>
                     <View
@@ -78,8 +80,8 @@ const JobCard = ({ navigation }) => {
                         style={{
                             flexDirection: 'row',
                         }}>
-                        <SettingIcon width={20} height={20} />
-                        <Text style={styles.headerTextStyle}>Not confirmed</Text>
+                        <ConfirmIcon width={20} height={20} />
+                        <Text style={styles.headerTextStyle}>Confirmed</Text>
                     </View>
                 </View>
 
@@ -178,17 +180,12 @@ const JobCard = ({ navigation }) => {
                     <Text style={{ marginTop: 4, borderBottomWidth: 1, borderColor: appColors.black, color: appColors.black }}>History Log</Text>
                 </View>
 
-                <View style={{ flexDirection: 'row', gap: 10, marginBottom: 10 }}>
-                    <Text style={styles.declineButton} onPress={() => navigation.goBack()}>Decline</Text>
-                    <Text style={styles.confirmButton} onPress={() => navigation.navigate('JobCardConfirmButton')}>Confirm</Text>
-                </View>
-
             </ScrollView >
         </View >
     );
 };
 
-export default JobCard;
+export default JobCardConfirmButton;
 
 const styles = StyleSheet.create({
     containerStyle: {
@@ -207,6 +204,16 @@ const styles = StyleSheet.create({
         fontFamily: 'SF-Pro',
         fontWeight: '700',
         fontSize: 16
+    },
+    startJobButton: {
+        backgroundColor: appColors.black,
+        padding: 16,
+        textAlign: 'center',
+        borderRadius: 24,
+        color: appColors.white,
+        fontWeight: '600',
+        fontSize: 16,
+        marginBottom: 10
     },
     headerViewStyle: {
         flexDirection: 'row',

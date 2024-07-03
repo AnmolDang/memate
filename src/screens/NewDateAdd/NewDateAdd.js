@@ -29,8 +29,6 @@ const NewDateAdd = ({ navigation }) => {
     const [darkActive, setDarkInActive] = useState(0);
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
-    const [selectedWeekValue, setSelectedWeekValue] = useState('Week');
-    const [selectedWeekValue1, setSelectedWeekValue1] = useState('Fri');
     const [selectedWeekValue2, setSelectedWeekValue2] = useState('2 Month');
 
 

@@ -25,7 +25,7 @@ const OtpScreen = ({ navigation }) => {
       </View>
       <TouchableOpacity
         style={styles.buttonStyle}
-        onPress={() => navigation.navigate('JobsScreen')}>
+        onPress={() => navigation.navigate('ChooseOrganization')}>
         <Text style={{ color: appColors.black, fontWeight: '700' }}>Sign In</Text>
       </TouchableOpacity>
     </View>

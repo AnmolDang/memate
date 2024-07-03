@@ -40,7 +40,7 @@ const Menu = ({ navigation }) => {
               marginTop: 16,
               justifyContent: 'flex-start',
             }}>
-            <TouchableOpacity style={styles.optionStyle}>
+            <TouchableOpacity style={styles.optionStyle} onPress={() => navigation.navigate('JobsScreen')}>
               <MenuJobIcon />
               <View style={{ marginLeft: 16 }}>
                 <Text style={styles.mainTextStyle}>Jobs</Text>
@@ -48,7 +48,7 @@ const Menu = ({ navigation }) => {
               </View>
               <Text style={styles.badgeStyle}>3</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.optionStyle}>
+            <TouchableOpacity style={styles.optionStyle} onPress={() => navigation.navigate('Tasks')}>
               <MenuTaskIcon />
               <View style={{ marginLeft: 16 }}>
                 <Text style={styles.mainTextStyle}>Tasks</Text>
@@ -106,22 +106,24 @@ const Menu = ({ navigation }) => {
               </View>
             </TouchableOpacity>
           </View>
-          <View
-            style={{
-              backgroundColor: appColors.black,
-              marginHorizontal: 16,
-              borderRadius: 30,
-              marginTop: 32,
-              justifyContent: 'center',
-              alignItems: 'center',
-              flexDirection: 'row',
-              paddingVertical: 16,
-              borderWidth: 1,
-              borderColor: appColors.grey,
-            }}>
-            <RateStar />
-            <Text style={styles.rateTextStyle}>Rate MeMate</Text>
-          </View>
+          <TouchableOpacity onPress={() => navigation.navigate('BottomBar')}>
+            <View
+              style={{
+                backgroundColor: appColors.black,
+                marginHorizontal: 16,
+                borderRadius: 30,
+                marginTop: 32,
+                justifyContent: 'center',
+                alignItems: 'center',
+                flexDirection: 'row',
+                paddingVertical: 16,
+                borderWidth: 1,
+                borderColor: appColors.grey,
+              }}>
+              <RateStar />
+              <Text style={styles.rateTextStyle}>Rate MeMate</Text>
+            </View>
+          </TouchableOpacity>
           <Text style={styles.termsStyle} onPress={() => navigation.navigate('Conditions')} >Terms and Conditions</Text>
         </View>
       </ScrollView>

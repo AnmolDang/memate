@@ -5,7 +5,7 @@ import ClockIcon from '../assets/svg/ClockIcon';
 import MapMarkerIcon from '../assets/svg/MapMarkerIcon';
 import StatusIcon from '../assets/svg/StatusIcon';
 
-const TaskComponent = () => {
+const TaskComponent = ({ navigation }) => {
   return (
     <View style={styles.containerStyle}>
       <View style={styles.viewStyle}>

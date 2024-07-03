@@ -1,18 +1,20 @@
-import {StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/BottomBar/Home';
 import JobsIcon from '../assets/svg/JobsIcon';
 import JobsScreen from '../screens/BottomBar/Jobs';
 import TasksScreen from '../screens/BottomBar/Tasks';
 import ChatScreen from '../screens/BottomBar/Chat';
-import {appColors} from '../utils/appColors';
+import { appColors } from '../utils/appColors';
 import HomeIcon from '../assets/svg/HomeIcon';
 import TasksIcon from '../assets/svg/TasksIcon';
 import ChatIcon from '../assets/svg/ChatIcon';
 import AddScreen from '../screens/BottomBar/Add';
 import PlusIcon from '../assets/svg/PlusIcon';
 import InactiveHome from '../assets/svg/InactiveHome';
+import Unavailability from '../screens/Unavailability/Unavailability';
+import Chat from '../screens/Chat/Chat';
 
 const Tab = createBottomTabNavigator();
 
@@ -35,7 +37,7 @@ const Tabs = () => {
         name="HomeScreen"
         component={HomeScreen}
         options={{
-          tabBarIcon: ({focused}) => (
+          tabBarIcon: ({ focused }) => (
             <InactiveHome stroke={focused ? appColors.black : appColors.grey} />
           ),
         }}
@@ -44,17 +46,17 @@ const Tabs = () => {
         name="JobsScreen"
         component={JobsScreen}
         options={{
-          tabBarIcon: ({focused}) => (
+          tabBarIcon: ({ focused }) => (
             <JobsIcon stroke={focused ? appColors.black : appColors.grey} />
           ),
         }}
       />
       <Tab.Screen
-        name="AddScreen"
-        component={AddScreen}
+        name="Unavailability"
+        component={Unavailability}
         options={{
-          tabBarIcon: ({focused}) => (
-            <View style={{marginTop: 20}}>
+          tabBarIcon: ({ focused }) => (
+            <View style={{ marginTop: 20 }}>
               <PlusIcon />
             </View>
           ),
@@ -64,16 +66,16 @@ const Tabs = () => {
         name="TasksScreen"
         component={TasksScreen}
         options={{
-          tabBarIcon: ({focused}) => (
+          tabBarIcon: ({ focused }) => (
             <TasksIcon stroke={focused ? appColors.black : appColors.grey} />
           ),
         }}
       />
       <Tab.Screen
-        name="ChatScreen"
-        component={ChatScreen}
+        name="Chat"
+        component={Chat}
         options={{
-          tabBarIcon: ({focused}) => (
+          tabBarIcon: ({ focused }) => (
             <ChatIcon stroke={focused ? appColors.black : appColors.grey} />
           ),
         }}

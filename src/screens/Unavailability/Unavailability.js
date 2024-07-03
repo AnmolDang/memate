@@ -40,35 +40,41 @@ const Unavailability = ({ navigation }) => {
                 <Text style={styles.confirmStyle}>Add Unavailability</Text>
 
                 <View style={{ marginBottom: 20 }}>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <View style={styles.calendarStyle} onPress={() => navigation.navigate('NewDateAdd')} >
-                            <View style={{ width: 30, height: 30, marginRight: 10 }}>
-                                <CalendarUnavailability />
+                    <TouchableOpacity onPress={() => navigation.navigate('NewDateAdd')}>
+                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                            <View style={styles.calendarStyle} onPress={() => navigation.navigate('NewDateAdd')} >
+                                <View style={{ width: 30, height: 30, marginRight: 10 }}>
+                                    <CalendarUnavailability />
+                                </View>
+                                <Text style={styles.summaryStyle}>Unavailability</Text>
                             </View>
-                            <Text style={styles.summaryStyle}>Unavailability</Text>
                         </View>
-                    </View>
+                    </TouchableOpacity>
                 </View>
 
                 <View style={{ marginBottom: 20 }}>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <View style={styles.calendarStyle}>
-                            <View style={{ width: 30, height: 30, marginRight: 10 }}>
-                                <HolidayCalendar />
+                    <TouchableOpacity>
+                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                            <View style={styles.calendarStyle}>
+                                <View style={{ width: 30, height: 30, marginRight: 10 }}>
+                                    <HolidayCalendar />
+                                </View>
+                                <Text style={styles.summaryStyle}>Holliday</Text>
                             </View>
-                            <Text style={styles.summaryStyle}>Holliday</Text>
                         </View>
-                    </View>
+                    </TouchableOpacity>
                 </View>
 
-                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                    <View style={styles.calendarStyle} >
-                        <View style={{ width: 30, height: 30, marginRight: 10 }}>
-                            <SickLeaveIcon />
+                <TouchableOpacity>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <View style={styles.calendarStyle} >
+                            <View style={{ width: 30, height: 30, marginRight: 10 }}>
+                                <SickLeaveIcon />
+                            </View>
+                            <Text style={styles.summaryStyle}>Sick Leave</Text>
                         </View>
-                        <Text style={styles.summaryStyle}>Sick Leave</Text>
                     </View>
-                </View>
+                </TouchableOpacity>
 
             </ScrollView >
         </View >
@@ -114,6 +120,7 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         justifyContent: 'center',
         borderRadius: 25,
+        width: '60%'
     },
     summaryStyle: {
         color: appColors.black,

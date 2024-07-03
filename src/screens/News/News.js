@@ -72,19 +72,21 @@ const News = ({ navigation }) => {
                 {active === 0 ?
                     <View>
                         <Text style={{ fontSize: 20, color: appColors.black, fontWeight: '600', marginVertical: 15 }} >News</Text>
-                        <View style={{ borderWidth: 1, borderColor: appColors.lightGrey, borderRadius: 26 }}>
-                            <View style={{ width: "100%", height: 257, marginBottom: 6, borderRadius: "26px" }}>
-                                <Laptop onPress={() => navigation.navigate('NewLink')} />
-                            </View>
-                            <View style={{ padding: 15 }}>
-                                <Text style={{ fontSize: 16, color: appColors.black }}>7 iPad Pro features I want to see Apple announce during its May event</Text>
+                        <TouchableOpacity onPress={() => navigation.navigate('NewsLink')} >
+                            <View style={{ borderWidth: 1, borderColor: appColors.lightGrey, borderRadius: 26 }}>
+                                <View style={{ width: "100%", height: 257, marginBottom: 6, borderRadius: "26px" }}>
+                                    <Laptop onPress={() => navigation.navigate('NewLink')} />
+                                </View>
+                                <View style={{ padding: 15 }}>
+                                    <Text style={{ fontSize: 16, color: appColors.black }}>7 iPad Pro features I want to see Apple announce during its May event</Text>
 
-                                <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: 15, marginBottom: 10 }}>
-                                    <Text>Organisation Name</Text>
-                                    <Text>9 Apr 2024 </Text>
+                                    <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: 15, marginBottom: 10 }}>
+                                        <Text>Organisation Name</Text>
+                                        <Text>9 Apr 2024 </Text>
+                                    </View>
                                 </View>
                             </View>
-                        </View>
+                        </TouchableOpacity>
                     </View>
                     : ""
                 }
@@ -108,9 +110,7 @@ const News = ({ navigation }) => {
                     </View>
                     : ""
                 }
-
             </ScrollView >
-
         </View >
     );
 };

@@ -1,10 +1,10 @@
-import {StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
-import {appColors} from '../../utils/appColors';
+import { appColors } from '../../utils/appColors';
 import OrganizationComponent from '../../components/OrganizationComponent';
 import RateStar from '../../assets/svg/RateStar';
 
-const ChooseOrganization = ({navigation}) => {
+const ChooseOrganization = ({ navigation }) => {
   const onNextClick = () => {
     navigation.navigate('BottomBar');
   };
@@ -12,8 +12,8 @@ const ChooseOrganization = ({navigation}) => {
     <View style={styles.containerStyle}>
       <Text style={styles.textStyle}>Choose Organization</Text>
       <OrganizationComponent onNextClick={onNextClick} />
-      <View style={{justifyContent: 'flex-end', flex: 1}}>
-        <View
+      <View style={{ justifyContent: 'flex-end', flex: 1 }}>
+        <TouchableOpacity onPress={() => navigation.navigate('BottomBar')}
           style={{
             backgroundColor: appColors.black,
             marginHorizontal: 16,
@@ -25,8 +25,8 @@ const ChooseOrganization = ({navigation}) => {
           }}>
           <RateStar />
           <Text style={styles.rateTextStyle}>Rate MeMate</Text>
-        </View>
-        <Text style={styles.termsStyle}>Terms and Conditions</Text>
+        </TouchableOpacity>
+        <Text style={styles.termsStyle} onPress={() => navigation.navigate('Conditions')}>Terms and Conditions</Text>
       </View>
     </View>
   );
