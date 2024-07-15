@@ -216,11 +216,14 @@ const styles = StyleSheet.create({
     marginTop: 20,
     alignItems: 'center',
   },
-  textStyle: { color: appColors.white, fontWeight: '600' },
+  textStyle: {
+    color: appColors.white,
+    fontWeight: '600',
+  },
   signInStyle: {
     marginHorizontal: 16,
     borderRadius: 24,
-    borderColor: appColors.white,
+    borderColor: appColors.grey,
     borderWidth: 1,
     alignItems: 'center',
     padding: 16,

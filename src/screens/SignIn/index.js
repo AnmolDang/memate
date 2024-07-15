@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
   signInStyle: {
     marginHorizontal: 16,
     borderRadius: 24,
-    borderColor: appColors.white,
+    borderColor: appColors.grey,
     borderWidth: 1,
     alignItems: 'center',
     padding: 16,
