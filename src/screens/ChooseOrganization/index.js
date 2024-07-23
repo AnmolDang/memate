@@ -1,19 +1,28 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import React from 'react';
-import { appColors } from '../../utils/appColors';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import React, {useEffect} from 'react';
+import {appColors} from '../../utils/appColors';
 import OrganizationComponent from '../../components/OrganizationComponent';
 import RateStar from '../../assets/svg/RateStar';
+import {useDispatch} from 'react-redux';
+import {getOrganization} from '../../redux/getOrganizationSlice';
 
-const ChooseOrganization = ({ navigation }) => {
+const ChooseOrganization = ({navigation}) => {
+  const dispatch = useDispatch();
+
   const onNextClick = () => {
     navigation.navigate('BottomBar');
   };
+
+  useEffect(() => {
+    dispatch(getOrganization());
+  }, []);
   return (
     <View style={styles.containerStyle}>
       <Text style={styles.textStyle}>Choose Organization</Text>
       <OrganizationComponent onNextClick={onNextClick} />
-      <View style={{ justifyContent: 'flex-end', flex: 1 }}>
-        <TouchableOpacity onPress={() => navigation.navigate('BottomBar')}
+      <View style={{justifyContent: 'flex-end', flex: 1}}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('BottomBar')}
           style={{
             backgroundColor: appColors.black,
             marginHorizontal: 16,
@@ -26,7 +35,11 @@ const ChooseOrganization = ({ navigation }) => {
           <RateStar />
           <Text style={styles.rateTextStyle}>Rate MeMate</Text>
         </TouchableOpacity>
-        <Text style={styles.termsStyle} onPress={() => navigation.navigate('Conditions')}>Terms and Conditions</Text>
+        <Text
+          style={styles.termsStyle}
+          onPress={() => navigation.navigate('Conditions')}>
+          Terms and Conditions
+        </Text>
       </View>
     </View>
   );

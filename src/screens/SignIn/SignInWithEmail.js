@@ -5,84 +5,117 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, { useEffect, useRef, useState } from 'react';
-import { appColors } from '../../utils/appColors';
+import React, {useEffect, useRef, useState} from 'react';
+import {appColors} from '../../utils/appColors';
 import LogoIcon from '../../assets/svg/LogoIcon';
 import CheckBox from '@react-native-community/checkbox';
-import { useDispatch, useSelector } from 'react-redux';
-import { loginUser } from '../../redux/loginSlice';
+import {useDispatch, useSelector} from 'react-redux';
+import {loginUser} from '../../redux/loginSlice';
+import axios from 'axios';
 
-const SignInWithEmail = ({ navigation }) => {
-
+const SignInWithEmail = ({navigation}) => {
   const dispatch = useDispatch();
+
+  // const loginResponse = useSelector(state => state.profileReducer.data);
 
   const inputEmailRef = useRef(null);
   const inputPassRef = useRef(null);
   const [isInputFocused, setIsInputFocused] = useState(false);
   const [isInputPassFocused, setIsPassInputFocused] = useState(false);
   const [toggleCheckBox, setToggleCheckBox] = useState(false);
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
   const [isValid, setIsValid] = useState(false);
 
-  const loginSuccess = useSelector((state) => state.loginReducer.data);
+  const loginSuccess = useSelector(state => state.loginReducer.data);
 
   const onLoginClick = () => {
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,4}$/;
-    const isValidEmail = emailRegex.test(email);
-    setIsValid(isValidEmail);
-    if (isValidEmail) {
-      if (email.length == 0) {
-        alert("Please enter email!");
-      } else if (password.length == 0) {
-        alert("Please enter password");
-      } else {
-        const payload = {
-          device_id: "abc",
-          email: email,
-          password: password
-        };
-        const myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-
-        const raw = JSON.stringify({
-          "device_id": "abc",
-          "email": "Raj.w3web@gmail.com",
-          "password": "2377009"
-        });
-
-
-        const requestOptions = {
-          method: "POST",
-          headers: myHeaders,
-          body: raw,
-          redirect: "follow"
-        };
-
-        fetch("https://dev.memate.com.au/api/v1/login/", requestOptions)
-          .then((response) => response.text())
-          .then((result) => console.log(result))
-          .catch((error) => console.error(error));
-        // dispatch(loginUser(payload));
-      }
+    // const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,4}$/;
+    // const isValidEmail = emailRegex.test(email);
+    // setIsValid(isValidEmail);
+    // if (isValidEmail) {
+    if (email.length == 0) {
+      alert('Please enter email!');
+    } else if (password.length == 0) {
+      alert('Please enter password');
     } else {
-      alert("Invalid Email")
+      const payload = {
+        device_id: 'abc',
+        email: email,
+        password: password,
+      };
+
+      // const myHeaders = new Headers();
+      // myHeaders.append('Content-Type', 'application/json');
+      // myHeaders.append('access-control-allow-credentials', 'true');
+      // myHeaders.append('Access-Control-Allow-Origin', '*');
+
+      // const raw = JSON.stringify({
+      //   deviceId: 'android',
+      //   email: 'autonuke@gmail.com',
+      //   password: '7924',
+      // });
+
+      // const requestOptions = {
+      //   method: 'POST',
+      //   headers: myHeaders,
+      //   body: raw,
+      //   redirect: 'follow',
+      // };
+
+      // console.log('Request ===> ', requestOptions);
+
+      // fetch('https://dev.memate.com.au/api/v1/m/login/', requestOptions)
+      //   .then(response => response.text())
+      //   .then(result => console.log(result))
+      //   .catch(error => console.error(error));
+
+      // let data = JSON.stringify({
+      //   device_id: 'abc',
+      //   email: 'autonuke@gmail.com',
+      //   password: '7924',
+      // });
+
+      // console.log('Payload ===> ', data);
+      // let config = {
+      //   method: 'post',
+      //   maxBodyLength: Infinity,
+      //   url: 'https://dev.memate.com.au/api/v1/m/login/',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   data: data,
+      // };
+
+      // console.log('Payload ===> ', config);
+      // axios
+      //   .request(config)
+      //   .then(response => {
+      //     console.log(JSON.stringify(response.data));
+      //   })
+      //   .catch(error => {
+      //     console.log(error);
+      //   });
+      dispatch(loginUser(payload));
     }
+    // } else {
+    //   alert('Invalid Email');
+    // }
   };
 
-  const handleEmailChange = (e) => {
+  const handleEmailChange = e => {
     setEmail(e);
   };
 
   useEffect(() => {
-    console.log("loginSuccess ===>", loginSuccess)
+    console.log('loginSuccess ===>', loginSuccess);
     if (loginSuccess != null) {
-      navigation("/ChooseOrganization");
+      localStorage.setItem('token', loginSuccess.access);
+      navigation('/ChooseOrganization');
     } else if (loginSuccess != null) {
       alert('Invalid credentials!');
     }
   }, [loginSuccess]);
-
 
   // Function to handle focus change
   const handleFocusChange = () => {
@@ -106,14 +139,14 @@ const SignInWithEmail = ({ navigation }) => {
               borderColor: isInputFocused
                 ? appColors.placeholderColor
                 : appColors.appColors,
-              color: appColors.white
+              color: appColors.white,
             },
           ]}
           placeholder="Email"
           placeholderTextColor={appColors.placeholderColor}
           onFocus={handleFocusChange}
           onBlur={handleFocusChange}
-          onChangeText={(e) => {
+          onChangeText={e => {
             handleEmailChange(e);
           }}
         />
@@ -127,19 +160,21 @@ const SignInWithEmail = ({ navigation }) => {
               borderColor: isInputPassFocused
                 ? appColors.placeholderColor
                 : appColors.inputBackground,
-              color: appColors.white
+              color: appColors.white,
             },
           ]}
           onFocus={handlePasswordFocusChange}
           onBlur={handlePasswordFocusChange}
-          onChangeText={(e) => {
+          onChangeText={e => {
             setPassword(e);
           }}
         />
         <TouchableOpacity
           style={styles.buttonStyle}
-          onPress={() => { onLoginClick() }}>
-          <Text style={{ color: appColors.black, fontWeight: '700' }}>
+          onPress={() => {
+            onLoginClick();
+          }}>
+          <Text style={{color: appColors.black, fontWeight: '700'}}>
             Sign In
           </Text>
         </TouchableOpacity>
@@ -163,10 +198,10 @@ const SignInWithEmail = ({ navigation }) => {
               value={toggleCheckBox}
               boxType={'square'}
               lineWidth={2}
-              tintColors={{ true: '#FFFFFF', false: '#FFFFFF' }}
+              tintColors={{true: '#FFFFFF', false: '#FFFFFF'}}
               onValueChange={newValue => setToggleCheckBox(newValue)}
             />
-            <Text style={{ color: appColors.grey }}>Remember Me</Text>
+            <Text style={{color: appColors.grey}}>Remember Me</Text>
           </View>
           <View>
             <Text style={styles.textStyle}>Forgot Password?</Text>
@@ -175,7 +210,7 @@ const SignInWithEmail = ({ navigation }) => {
         <TouchableOpacity
           style={styles.signInStyle}
           onPress={() => navigation.navigate('SignIn')}>
-          <Text style={{ color: appColors.white, fontWeight: '700' }}>
+          <Text style={{color: appColors.white, fontWeight: '700'}}>
             Sign in with Phone
           </Text>
         </TouchableOpacity>
