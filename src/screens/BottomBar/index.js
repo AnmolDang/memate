@@ -1,7 +1,7 @@
-import {StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import Tabs from '../../navigations/tabs';
-import {appColors} from '../../utils/appColors';
+import { appColors } from '../../utils/appColors';
 
 const BottomBar = () => {
   return (
@@ -15,7 +15,7 @@ export default BottomBar;
 
 const styles = StyleSheet.create({
   containerStyle: {
-    backgroundColor: appColors.black,
+    backgroundColor: appColors.white,
     flex: 1,
   },
 });

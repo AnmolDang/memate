@@ -1,144 +1,54 @@
 import {
+  Image,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { appColors } from '../../utils/appColors';
-import LogoIcon from '../../assets/svg/LogoIcon';
 import CheckBox from '@react-native-community/checkbox';
-import { useDispatch, useSelector } from 'react-redux';
-import { loginUser } from '../../redux/loginSlice';
+import Images from '../theme/Images';
 
 const SignInWithEmail = ({ navigation }) => {
 
-  const dispatch = useDispatch();
-
   const inputEmailRef = useRef(null);
   const inputPassRef = useRef(null);
-  const [isInputFocused, setIsInputFocused] = useState(false);
-  const [isInputPassFocused, setIsPassInputFocused] = useState(false);
+
   const [toggleCheckBox, setToggleCheckBox] = useState(false);
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-  const [isValid, setIsValid] = useState(false);
-
-  const loginSuccess = useSelector((state) => state.loginReducer.data);
-
-  const onLoginClick = () => {
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,4}$/;
-    const isValidEmail = emailRegex.test(email);
-    setIsValid(isValidEmail);
-    if (isValidEmail) {
-      if (email.length == 0) {
-        alert("Please enter email!");
-      } else if (password.length == 0) {
-        alert("Please enter password");
-      } else {
-        const payload = {
-          device_id: "abc",
-          email: email,
-          password: password
-        };
-        const myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-
-        const raw = JSON.stringify({
-          "device_id": "abc",
-          "email": "Raj.w3web@gmail.com",
-          "password": "2377009"
-        });
-
-        const requestOptions = {
-          method: "POST",
-          headers: myHeaders,
-          body: raw,
-          redirect: "follow"
-        };
-
-        fetch("https://dev.memate.com.au/api/v1/login/", requestOptions)
-          .then((response) => response.text())
-          .then((result) => console.log(result))
-          .catch((error) => console.error(error));
-        // dispatch(loginUser(payload));
-      }
-    } else {
-      alert("Invalid Email")
-    }
-  };
-
-  const handleEmailChange = (e) => {
-    setEmail(e);
-  };
-
-  useEffect(() => {
-    console.log("loginSuccess ===>", loginSuccess)
-    if (loginSuccess != null) {
-      navigation("/ChooseOrganization");
-    } else if (loginSuccess != null) {
-      alert('Invalid credentials!');
-    }
-  }, [loginSuccess]);
-
-
-  // Function to handle focus change
-  const handleFocusChange = () => {
-    setIsInputFocused(inputEmailRef.current.isFocused());
-  };
-  const handlePasswordFocusChange = () => {
-    setIsPassInputFocused(inputPassRef.current.isFocused());
-  };
 
   return (
     <View style={styles.containerStyle}>
-      <View style={styles.logoStyle}>
-        <LogoIcon width={100} />
+      <Text style={styles.textStyle}>Sign in with Phone</Text>
+      <View style={{ alignItems: 'center', marginTop: 50 }}>
+        <Image
+          resizeMode="cover"
+          source={Images.kooieBlackLogo}
+        />
       </View>
       <View style={styles.viewStyle}>
+        <Text style={{ textAlign: 'center', fontSize: 18, fontWeight: '600', color: appColors.black, marginTop: 50 }}>Sign in</Text>
         <TextInput
           ref={inputEmailRef}
-          style={[
-            styles.inputStyle,
-            {
-              borderColor: isInputFocused
-                ? appColors.placeholderColor
-                : appColors.appColors,
-              color: appColors.white
-            },
-          ]}
+          style={
+            styles.inputStyle}
           placeholder="Email"
           placeholderTextColor={appColors.placeholderColor}
-          onFocus={handleFocusChange}
-          onBlur={handleFocusChange}
-          onChangeText={(e) => {
-            handleEmailChange(e);
-          }}
         />
         <TextInput
           ref={inputPassRef}
           placeholder="Password"
           placeholderTextColor={appColors.placeholderColor}
-          style={[
-            styles.inputStyle,
-            {
-              borderColor: isInputPassFocused
-                ? appColors.placeholderColor
-                : appColors.inputBackground,
-              color: appColors.white
-            },
-          ]}
-          onFocus={handlePasswordFocusChange}
-          onBlur={handlePasswordFocusChange}
-          onChangeText={(e) => {
-            setPassword(e);
-          }}
+          style={
+            styles.inputStyle
+          }
         />
         <TouchableOpacity
           style={styles.buttonStyle}
-          onPress={() => { onLoginClick() }}>
-          <Text style={{ color: appColors.black, fontWeight: '700' }}>
+          onPress={() => navigation.navigate('StartingScreen')}
+        >
+          <Text style={{ color: appColors.white, fontWeight: '700' }}>
             Sign In
           </Text>
         </TouchableOpacity>
@@ -147,7 +57,7 @@ const SignInWithEmail = ({ navigation }) => {
           style={{
             flexDirection: 'row',
             alignItems: 'center',
-            justifyContent: 'center',
+            justifyContent: 'space-between',
             marginTop: 20,
             marginHorizontal: 16,
           }}>
@@ -162,23 +72,23 @@ const SignInWithEmail = ({ navigation }) => {
               value={toggleCheckBox}
               boxType={'square'}
               lineWidth={2}
-              tintColors={{ true: '#FFFFFF', false: '#FFFFFF' }}
+              tintColors={{ true: 'red', false: 'red' }}
               onValueChange={newValue => setToggleCheckBox(newValue)}
             />
-            <Text style={{ color: appColors.grey }}>Remember Me</Text>
+            <Text style={{ color: appColors.black }}>Remember Me</Text>
           </View>
           <View>
-            <Text style={styles.textStyle}>Forgot Password?</Text>
+            <Text style={styles.textForgotStyle}>Forgot Password?</Text>
           </View>
         </View>
-        <TouchableOpacity
-          style={styles.signInStyle}
-          onPress={() => navigation.navigate('SignIn')}>
-          <Text style={{ color: appColors.white, fontWeight: '700' }}>
-            Sign in with Phone
-          </Text>
-        </TouchableOpacity>
       </View>
+      <TouchableOpacity
+        style={styles.signInStyle}
+        onPress={() => navigation.navigate('SignIn')}>
+        <Text style={{ color: appColors.white, fontWeight: '700' }}>
+          Sign in with Phone
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -187,42 +97,48 @@ export default SignInWithEmail;
 
 const styles = StyleSheet.create({
   containerStyle: {
-    backgroundColor: appColors.black,
+    backgroundColor: appColors.white,
     flex: 1,
   },
-  logoStyle: {
-    flex: 2,
-    justifyContent: 'center',
-    alignItems: 'center',
+  textStyle: {
+    color: appColors.black,
+    alignSelf: 'center',
+    marginTop: 30,
+    fontWeight: '600',
+  },
+  textForgotStyle: {
+    color: appColors.black,
+    alignSelf: 'center',
+    fontWeight: '500',
   },
   viewStyle: {
-    flex: 3,
+    flex: 1,
   },
   inputStyle: {
     marginHorizontal: 16,
     borderRadius: 8,
-    backgroundColor: appColors.inputBackground,
-    borderWidth: 1,
+    backgroundColor: appColors.lightGrey,
     marginTop: 16,
     paddingHorizontal: 16,
+    color: appColors.black
   },
   buttonStyle: {
-    color: appColors.black,
-    backgroundColor: appColors.white,
+    color: appColors.white,
+    backgroundColor: appColors.red,
     marginHorizontal: 16,
-    padding: 15,
+    padding: 16,
     borderRadius: 24,
     marginTop: 20,
     alignItems: 'center',
   },
-  textStyle: { color: appColors.white, fontWeight: '600' },
   signInStyle: {
     marginHorizontal: 16,
     borderRadius: 24,
-    borderColor: appColors.white,
+    borderColor: appColors.black,
+    backgroundColor: appColors.black,
     borderWidth: 1,
     alignItems: 'center',
     padding: 16,
-    marginTop: 48,
+    bottom: 36,
   },
 });

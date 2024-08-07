@@ -1,18 +1,17 @@
-import {StyleSheet, Text, View} from 'react-native';
+import { StyleSheet } from 'react-native';
 import React from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import HomeScreen from '../screens/BottomBar/Home';
-import JobsIcon from '../assets/svg/JobsIcon';
-import JobsScreen from '../screens/BottomBar/Jobs';
-import TasksScreen from '../screens/BottomBar/Tasks';
-import ChatScreen from '../screens/BottomBar/Chat';
-import {appColors} from '../utils/appColors';
-import HomeIcon from '../assets/svg/HomeIcon';
-import TasksIcon from '../assets/svg/TasksIcon';
-import ChatIcon from '../assets/svg/ChatIcon';
-import AddScreen from '../screens/BottomBar/Add';
-import PlusIcon from '../assets/svg/PlusIcon';
-import InactiveHome from '../assets/svg/InactiveHome';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { appColors } from '../utils/appColors';
+import SearchBottomIcon from '../assets/svg/SearchBottomIcon';
+import HeartBottomIcon from '../assets/svg/HeartBottomIcon';
+import PropertyBottomIcon from '../assets/svg/PropertyBottomIcon';
+import NotificationBottomIcon from '../assets/svg/NotificationBottomIcon';
+import ProfileBottomIcon from '../assets/svg/ProfileBottomIcon';
+import Home from '../screens/Home/Home';
+import Collection from '../screens/BottomBar/Collections/Collection';
+import Property from '../screens/BottomBar/Property/Property';
+import Notification from '../screens/BottomBar/Notification/Notification';
+import Profile from '../screens/BottomBar/Profile/Profile';
 
 const Tab = createBottomTabNavigator();
 
@@ -21,67 +20,76 @@ const Tabs = () => {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-        tabBarShowLabel: false,
         tabBarStyle: {
-          position: 'absolute',
-
+          borderTopWidth: 0,
           elevation: 0,
           backgroundColor: appColors.white,
-
-          height: 90,
+          height: 66,
+        },
+        tabBarLabelStyle: {
+          fontSize: 12,
+          paddingBottom: 10,
+        },
+        tabBarActiveTintColor: appColors.red,
+        tabBarInactiveTintColor: appColors.grey,
+        tabBarItemStyle: {
+          justifyContent: 'center',
+          alignItems: 'center',
         },
       }}>
       <Tab.Screen
-        name="HomeScreen"
-        component={HomeScreen}
+        name="Home"
+        component={Home}
         options={{
-          tabBarIcon: ({focused}) => (
-            <InactiveHome stroke={focused ? appColors.black : appColors.grey} />
+          tabBarIcon: ({ focused }) => (
+            <SearchBottomIcon stroke={focused ? appColors.red : appColors.grey} />
           ),
+          tabBarLabel: 'Search',
         }}
       />
       <Tab.Screen
-        name="JobsScreen"
-        component={JobsScreen}
+        name="Collection"
+        component={Collection}
         options={{
-          tabBarIcon: ({focused}) => (
-            <JobsIcon stroke={focused ? appColors.black : appColors.grey} />
+          tabBarIcon: ({ focused }) => (
+            <HeartBottomIcon stroke={focused ? appColors.red : appColors.grey} />
           ),
+          tabBarLabel: 'Collections',
         }}
       />
       <Tab.Screen
-        name="AddScreen"
-        component={AddScreen}
+        name="Property"
+        component={Property}
         options={{
-          tabBarIcon: ({focused}) => (
-            <View style={{marginTop: 20}}>
-              <PlusIcon />
-            </View>
+          tabBarIcon: ({ focused }) => (
+            <PropertyBottomIcon stroke={focused ? appColors.red : appColors.grey} />
           ),
+          tabBarLabel: 'My Property',
         }}
       />
       <Tab.Screen
-        name="TasksScreen"
-        component={TasksScreen}
+        name="Notification"
+        component={Notification}
         options={{
-          tabBarIcon: ({focused}) => (
-            <TasksIcon stroke={focused ? appColors.black : appColors.grey} />
+          tabBarIcon: ({ focused }) => (
+            <NotificationBottomIcon stroke={focused ? appColors.red : appColors.grey} />
           ),
+          tabBarLabel: 'Notifications',
         }}
       />
       <Tab.Screen
-        name="ChatScreen"
-        component={ChatScreen}
+        name="Profile"
+        component={Profile}
         options={{
-          tabBarIcon: ({focused}) => (
-            <ChatIcon stroke={focused ? appColors.black : appColors.grey} />
+          tabBarIcon: ({ focused }) => (
+            <ProfileBottomIcon stroke={focused ? appColors.red : appColors.grey} />
           ),
+          tabBarLabel: 'Profile',
         }}
       />
     </Tab.Navigator>
   );
 };
-
 export default Tabs;
 
 const styles = StyleSheet.create({});

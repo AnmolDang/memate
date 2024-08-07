@@ -1,32 +1,74 @@
 import {
+  Image,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
 } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import { appColors } from '../../utils/appColors';
-import LogoIcon from '../../assets/svg/LogoIcon';
 import OTPTextView from 'react-native-otp-textinput';
+import CheckBox from '@react-native-community/checkbox';
+import Images from '../theme/Images';
 
 const OtpScreen = ({ navigation }) => {
+
+  const [toggleCheckBox, setToggleCheckBox] = useState(false);
+
   return (
     <View style={styles.containerStyle}>
-      <View style={{ marginTop: 150, alignSelf: 'center' }}>
-        <LogoIcon width={100} />
-      </View>
-      <View style={styles.logoStyle}>
-        <OTPTextView
-          containerStyle={{ marginTop: 60 }}
-          textInputStyle={styles.roundedTextInput}
-          tintColor={appColors.white}
-          offTintColor={appColors.white}
+      <Text style={styles.textStyle}>Sign in with Phone</Text>
+      <View style={{ alignItems: 'center', marginTop: 50 }}>
+        <Image
+          resizeMode="cover"
+          source={Images.kooieBlackLogo}
         />
       </View>
+      <View style={styles.logoStyle}>
+
+        <Text style={{ fontSize: 16, color: appColors.black, textAlign: 'center', marginTop: 30, fontWeight: '600' }}>Check your phone for a code</Text>
+        <Text style={{ marginTop: 10, color: appColors.black }}>Check your phone for a 6-digit code and
+          enter it below.</Text>
+        <OTPTextView
+          containerStyle={{ marginTop: 20 }}
+          textInputStyle={styles.roundedTextInput}
+          tintColor={appColors.black}
+          offTintColor={appColors.white}
+        />
+
+      </View>
+
+      <View style={{
+        flex: 1
+      }}>
+        <TouchableOpacity
+          style={[styles.buttonStyle, { marginTop: 14 }]}
+          onPress={() => navigation.navigate('MyKooie')}>
+          <Text style={{ color: appColors.white, fontWeight: '700' }}>Submit</Text>
+        </TouchableOpacity>
+
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}>
+          <CheckBox
+            disabled={false}
+            value={toggleCheckBox}
+            boxType={'square'}
+            lineWidth={2}
+            tintColors={{ true: 'red', false: 'red' }}
+            onValueChange={newValue => setToggleCheckBox(newValue)}
+          />
+          <Text style={{ color: appColors.black }}>Remember Me</Text>
+        </View>
+      </View>
+
       <TouchableOpacity
-        style={styles.buttonStyle}
-        onPress={() => navigation.navigate('JobsScreen')}>
-        <Text style={{ color: appColors.black, fontWeight: '700' }}>Sign In</Text>
+        style={[styles.buttonStyle, { backgroundColor: appColors.black }]}
+        onPress={() => navigation.navigate('SignIn')}>
+        <Text style={{ color: appColors.white, fontWeight: '700' }}>Sign in with Phone</Text>
       </TouchableOpacity>
     </View>
   );
@@ -36,15 +78,17 @@ export default OtpScreen;
 
 const styles = StyleSheet.create({
   containerStyle: {
-    backgroundColor: appColors.black,
+    backgroundColor: appColors.white,
     flex: 1,
   },
   logoStyle: {
-    flex: 2,
     alignItems: 'center',
   },
-  viewStyle: {
-    flex: 3,
+  textStyle: {
+    color: appColors.black,
+    alignSelf: 'center',
+    marginTop: 30,
+    fontWeight: '600',
   },
   inputStyle: {
     marginHorizontal: 16,
@@ -56,28 +100,20 @@ const styles = StyleSheet.create({
   },
   buttonStyle: {
     color: appColors.black,
-    backgroundColor: appColors.white,
+    backgroundColor: appColors.red,
     marginHorizontal: 16,
-    padding: 15,
+    padding: 16,
     borderRadius: 24,
     marginBottom: 20,
     alignItems: 'center',
-  },
-  textStyle: { color: appColors.white, fontWeight: '600' },
-  signInStyle: {
-    marginHorizontal: 16,
-    borderRadius: 24,
-    borderColor: appColors.white,
-    borderWidth: 1,
-    alignItems: 'center',
-    padding: 16,
-    marginTop: 48,
   },
   roundedTextInput: {
     borderRadius: 10,
     borderWidth: 1,
     borderBottomWidth: 1,
-    color: appColors.white,
+    color: appColors.black,
+    borderColor: appColors.lightGrey,
+    backgroundColor: appColors.lightGrey,
   },
   container: {
     justifyContent: 'center',

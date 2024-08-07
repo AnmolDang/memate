@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "memate.app"
-               BlueprintName = "memate"
-               ReferencedContainer = "container:memate.xcodeproj">
+               BuildableName = "kooie.app"
+               BlueprintName = "kooie"
+               ReferencedContainer = "container:kooie.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "memateTests.xctest"
-               BlueprintName = "memateTests"
-               ReferencedContainer = "container:memate.xcodeproj">
+               BuildableName = "kooieTests.xctest"
+               BlueprintName = "kooieTests"
+               ReferencedContainer = "container:kooie.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "memate.app"
-            BlueprintName = "memate"
-            ReferencedContainer = "container:memate.xcodeproj">
+            BuildableName = "kooie.app"
+            BlueprintName = "kooie"
+            ReferencedContainer = "container:kooie.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "memate.app"
-            BlueprintName = "memate"
-            ReferencedContainer = "container:memate.xcodeproj">
+            BuildableName = "kooie.app"
+            BlueprintName = "kooie"
+            ReferencedContainer = "container:kooie.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
