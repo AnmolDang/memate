@@ -7,6 +7,7 @@ const HouseBookingInnerPage = ({ navigation }) => {
 
     const [active, setActive] = useState(0);
 
+
     return (
         <View style={styles.containerStyle}>
             <View style={styles.headSearchStyle}>
