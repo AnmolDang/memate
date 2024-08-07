@@ -17,7 +17,6 @@ const HouseBookingInnerPage = ({ navigation }) => {
                 </View>
                 <Text style={{ color: appColors.black }}>Cancel</Text>
             </View>
-
             <View style={styles.tabStyle}>
                 <Text style={[styles.textStyles,
                 {
