@@ -1,22 +1,24 @@
 import {
-  Image,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
 } from 'react-native';
 import React, { useEffect, useState } from 'react';
+import LogoIcon from '../../assets/svg/LogoIcon';
 import { appColors } from '../../utils/appColors';
 import PhoneInput from 'react-native-phone-input';
 import CountryPicker from 'react-native-country-picker-modal';
-import Images from '../theme/Images';
+import CheckBox from '@react-native-community/checkbox';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const SignInWithPhone = ({ navigation }) => {
-
-  const [phoneNumber, setPhoneNumber] = useState('1');
-  const [countryCode, setCountryCode] = useState('US');
+  const [phoneNumber, setPhoneNumber] = useState('91');
+  const [countryCode, setCountryCode] = useState('IN');
 
   const [countryPickerVisible, setCountryPickerVisible] = useState(false);
+
+  const [toggleCheckBox, setToggleCheckBox] = useState(false);
 
   const toggleCountryPicker = () => {
     setCountryPickerVisible(!countryPickerVisible);
@@ -36,24 +38,20 @@ const SignInWithPhone = ({ navigation }) => {
   }, [phoneNumber]);
 
   return (
-    <View style={styles.containerStyle}>
-      <Text style={styles.textStyle}>Sign in with Phone</Text>
-      <View style={{ alignItems: 'center', marginTop: 50 }}>
-        <Image
-          resizeMode="cover"
-          source={Images.kooieBlackLogo}
-        />
-      </View>
+    <SafeAreaView style={styles.containerStyle}>
+      {/* <Text style={styles.textStyle}>Sign in</Text> */}
       <View style={styles.logoStyle}>
+        <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+          <LogoIcon width={100} />
+        </View>
 
-        <Text style={{ textAlign: 'center', fontSize: 18, fontWeight: '600', color: appColors.black }}>Sign in</Text>
         <View
           style={{
-            backgroundColor: appColors.lightGrey,
+            backgroundColor: '#212528',
             marginHorizontal: 16,
             padding: 15,
             borderRadius: 8,
-            marginTop: 30,
+            marginTop: 80,
           }}>
           <PhoneInput
             onPressFlag={toggleCountryPicker}
@@ -61,7 +59,7 @@ const SignInWithPhone = ({ navigation }) => {
             initialValue={phoneNumber}
             value={phoneNumber}
             onChangePhoneNumber={number => setPhoneNumber(number)}
-            textStyle={{ color: appColors.black }}
+            textStyle={{ color: 'white' }}
           />
         </View>
 
@@ -81,10 +79,25 @@ const SignInWithPhone = ({ navigation }) => {
         <TouchableOpacity
           style={styles.buttonStyle}
           onPress={() => navigation.navigate('OtpScreen')}>
-          <Text style={{ color: appColors.white, fontWeight: '700' }}>
+          <Text style={{ color: appColors.black, fontWeight: '700' }}>
             Send Code
           </Text>
         </TouchableOpacity>
+        <View
+          style={styles.row__}>
+          <CheckBox
+            disabled={false}
+            value={toggleCheckBox}
+            boxType={'circle'}
+            lineWidth={2}
+            onCheckColor={appColors.white}
+            tintColors={appColors.grey}
+            onTintColor={appColors.white}
+            onValueChange={newValue => setToggleCheckBox(newValue)}
+            style={{ width: 20, height: 20, }}
+          />
+          <Text style={{ color: appColors.grey, fontSize: 14 }}>Remember Me</Text>
+        </View>
       </View>
       <TouchableOpacity
         style={styles.signInStyle}
@@ -95,7 +108,7 @@ const SignInWithPhone = ({ navigation }) => {
           Sign in with Email
         </Text>
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -103,18 +116,18 @@ export default SignInWithPhone;
 
 const styles = StyleSheet.create({
   containerStyle: {
-    backgroundColor: appColors.white,
+    backgroundColor: appColors.black,
     flex: 1,
   },
   logoStyle: {
     flex: 1,
-    marginTop: 50
+    justifyContent: 'center',
   },
   textStyle: {
-    color: appColors.black,
+    color: appColors.white,
     alignSelf: 'center',
-    marginTop: 30,
-    fontWeight: '600',
+    top: 20,
+    fontWeight: '500',
   },
   input: {
     height: 40,
@@ -124,13 +137,20 @@ const styles = StyleSheet.create({
     backgroundColor: appColors.inputColor,
   },
   buttonStyle: {
-    color: appColors.white,
-    backgroundColor: appColors.red,
+    color: appColors.black,
+    backgroundColor: appColors.white,
     marginHorizontal: 16,
-    padding: 16,
+    padding: 15,
     borderRadius: 24,
     marginTop: 20,
     alignItems: 'center',
+  },
+  row__: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 10,
+    marginVertical: 10
   },
   phoneInput: {
     height: 50,
@@ -139,6 +159,9 @@ const styles = StyleSheet.create({
     borderColor: '#ccc',
     marginBottom: 20,
     paddingHorizontal: 10,
+  },
+  countryButton: {
+    marginBottom: 20,
   },
   countryPickerButton: {
     borderRadius: 5,
@@ -152,11 +175,11 @@ const styles = StyleSheet.create({
   signInStyle: {
     marginHorizontal: 16,
     borderRadius: 24,
-    borderColor: appColors.black,
-    backgroundColor: appColors.black,
+    borderColor: appColors.grey,
     borderWidth: 1,
     alignItems: 'center',
-    padding: 16,
+    justifyContent: 'center',
+    height: 45,
     bottom: 36,
   },
 });

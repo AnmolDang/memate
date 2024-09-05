@@ -1,95 +1,141 @@
 import {
-  Image,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { appColors } from '../../utils/appColors';
+import LogoIcon from '../../assets/svg/LogoIcon';
 import CheckBox from '@react-native-community/checkbox';
-import Images from '../theme/Images';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginUser } from '../../redux/loginSlice';
+import axios from 'axios';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { ApiBaseUrl, BASE_URL } from '../../utils/Constants';
+import _fetch from '../../utils/_fetch';
 
 const SignInWithEmail = ({ navigation }) => {
+  const dispatch = useDispatch();
+
+  // const loginResponse = useSelector(state => state.profileReducer.data);
 
   const inputEmailRef = useRef(null);
   const inputPassRef = useRef(null);
-
+  const [isInputFocused, setIsInputFocused] = useState(false);
+  const [isInputPassFocused, setIsPassInputFocused] = useState(false);
   const [toggleCheckBox, setToggleCheckBox] = useState(false);
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [isValid, setIsValid] = useState(false);
+
+  const loginSuccess = useSelector(state => state.loginReducer.data);
+
+  const onLoginClick = async () => {
+    // const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,4}$/;
+    // const isValidEmail = emailRegex.test(email);
+    // setIsValid(isValidEmail);
+    // if (isValidEmail) {
+    //   if (email.length == 0) {
+    //     alert('Please enter email!');
+    //   } else if (password.length == 0) {
+    //     alert('Please enter password');
+    //   } else {
+
+    const body = {
+      "deviceId": "android",
+      "email": "autonuke@gmail.com",
+      "password": "7924"
+    }
+    console.log(body);
+
+    let res = await _fetch(`${BASE_URL}/m/login`, "POST", body, {});
+    console.log({ res });
+
+
+
+  };
+
+  const handleEmailChange = e => {
+    setEmail(e);
+  };
+
+  useEffect(() => {
+    console.log('loginSuccess ===>', loginSuccess);
+    if (loginSuccess != null) {
+      localStorage.setItem('token', loginSuccess.access);
+      navigation('/ChooseOrganization');
+    } else if (loginSuccess != null) {
+      alert('Invalid credentials!');
+    }
+  }, [loginSuccess]);
+
+  // Function to handle focus change
+  const handleFocusChange = () => {
+    setIsInputFocused(inputEmailRef.current.isFocused());
+  };
+  const handlePasswordFocusChange = () => {
+    setIsPassInputFocused(inputPassRef.current.isFocused());
+  };
 
   return (
-    <View style={styles.containerStyle}>
-      <Text style={styles.textStyle}>Sign in with Phone</Text>
-      <View style={{ alignItems: 'center', marginTop: 50 }}>
-        <Image
-          resizeMode="cover"
-          source={Images.kooieBlackLogo}
-        />
+    <SafeAreaView style={styles.containerStyle}>
+      <View style={styles.logoStyle}>
+        <LogoIcon width={100} />
       </View>
       <View style={styles.viewStyle}>
-        <Text style={{ textAlign: 'center', fontSize: 18, fontWeight: '600', color: appColors.black, marginTop: 50 }}>Sign in</Text>
         <TextInput
           ref={inputEmailRef}
-          style={
-            styles.inputStyle}
+          style={[styles.inputStyle, { borderColor: isInputFocused ? appColors.placeholderColor : appColors.inputBackground, color: appColors.white, },]}
           placeholder="Email"
           placeholderTextColor={appColors.placeholderColor}
+          onFocus={handleFocusChange}
+          onBlur={handleFocusChange}
+          onChangeText={e => { handleEmailChange(e); }}
+          keyboardType='email-address'
         />
         <TextInput
           ref={inputPassRef}
           placeholder="Password"
           placeholderTextColor={appColors.placeholderColor}
-          style={
-            styles.inputStyle
-          }
+          style={[styles.inputStyle, { borderColor: isInputPassFocused ? appColors.placeholderColor : appColors.inputBackground, color: appColors.white, },]}
+          onFocus={handlePasswordFocusChange}
+          onBlur={handlePasswordFocusChange}
+          onChangeText={e => { setPassword(e); }}
         />
-        <TouchableOpacity
-          style={styles.buttonStyle}
-          onPress={() => navigation.navigate('StartingScreen')}
-        >
-          <Text style={{ color: appColors.white, fontWeight: '700' }}>
-            Sign In
-          </Text>
+        <TouchableOpacity style={styles.buttonStyle} onPress={() => { onLoginClick(); }}>
+          <Text style={{ color: appColors.black, fontWeight: '700' }}> Sign In </Text>
         </TouchableOpacity>
 
         <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            marginTop: 20,
-            marginHorizontal: 16,
-          }}>
+          style={styles.row_between}>
           <View
-            style={{
-              flex: 1,
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}>
+            style={styles.row__}>
             <CheckBox
               disabled={false}
               value={toggleCheckBox}
-              boxType={'square'}
+              boxType={'circle'}
               lineWidth={2}
-              tintColors={{ true: 'red', false: 'red' }}
+              onCheckColor={appColors.white}
+              tintColors={appColors.grey}
+              onTintColor={appColors.white}
               onValueChange={newValue => setToggleCheckBox(newValue)}
+              style={{ width: 20, height: 20, }}
             />
-            <Text style={{ color: appColors.black }}>Remember Me</Text>
+            <Text style={{ color: appColors.grey, fontSize: 14 }}>Remember Me</Text>
           </View>
           <View>
-            <Text style={styles.textForgotStyle}>Forgot Password?</Text>
+            <Text style={styles.textStyle}>Forgot Password?</Text>
           </View>
         </View>
+        <TouchableOpacity
+          style={styles.signInStyle}
+          onPress={() => navigation.navigate('SignIn')}>
+          <Text style={{ color: appColors.white, fontWeight: '700' }}> Sign in with Phone </Text>
+        </TouchableOpacity>
       </View>
-      <TouchableOpacity
-        style={styles.signInStyle}
-        onPress={() => navigation.navigate('SignIn')}>
-        <Text style={{ color: appColors.white, fontWeight: '700' }}>
-          Sign in with Phone
-        </Text>
-      </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -97,48 +143,60 @@ export default SignInWithEmail;
 
 const styles = StyleSheet.create({
   containerStyle: {
-    backgroundColor: appColors.white,
+    backgroundColor: appColors.black,
     flex: 1,
   },
-  textStyle: {
-    color: appColors.black,
-    alignSelf: 'center',
-    marginTop: 30,
-    fontWeight: '600',
-  },
-  textForgotStyle: {
-    color: appColors.black,
-    alignSelf: 'center',
-    fontWeight: '500',
+  logoStyle: {
+    flex: 2,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   viewStyle: {
-    flex: 1,
+    flex: 3,
   },
   inputStyle: {
     marginHorizontal: 16,
     borderRadius: 8,
-    backgroundColor: appColors.lightGrey,
+    backgroundColor: appColors.inputBackground,
+    borderWidth: 1,
     marginTop: 16,
-    paddingHorizontal: 16,
-    color: appColors.black
+    paddingHorizontal: 10,
+    height: 45
+  },
+  row_between: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginTop: 20,
+    marginHorizontal: 16,
+  },
+  row__: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10
   },
   buttonStyle: {
-    color: appColors.white,
-    backgroundColor: appColors.red,
+    color: appColors.black,
+    backgroundColor: appColors.white,
     marginHorizontal: 16,
-    padding: 16,
     borderRadius: 24,
     marginTop: 20,
     alignItems: 'center',
+    justifyContent: 'center',
+    height: 45
+  },
+  textStyle: {
+    color: appColors.white,
+    fontWeight: '600',
   },
   signInStyle: {
     marginHorizontal: 16,
     borderRadius: 24,
-    borderColor: appColors.black,
-    backgroundColor: appColors.black,
+    borderColor: appColors.grey,
     borderWidth: 1,
     alignItems: 'center',
-    padding: 16,
-    bottom: 36,
+    justifyContent: 'center',
+    height: 45,
+    marginTop: 50,
   },
 });

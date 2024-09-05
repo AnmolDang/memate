@@ -1,17 +1,16 @@
 import * as React from "react"
 import Svg, { Path } from "react-native-svg"
-
 const Clock = (props) => (
     <Svg xmlns="http://www.w3.org/2000/svg" fill="none" {...props}>
         <Path
-            stroke="#6E6E73"
+            stroke="#191C1F"
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={1.5}
             d="M22 12c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2s10 4.48 10 10Z"
         />
         <Path
-            stroke="#6E6E73"
+            stroke="#191C1F"
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={1.5}

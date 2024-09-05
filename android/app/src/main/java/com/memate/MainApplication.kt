@@ -1,4 +1,4 @@
-package com.kooie
+package com.memate
 
 import android.app.Application
 import com.facebook.react.PackageList
