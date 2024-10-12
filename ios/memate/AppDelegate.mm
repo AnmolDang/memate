@@ -1,17 +1,31 @@
 #import "AppDelegate.h"
-
 #import <React/RCTBundleURLProvider.h>
+#import <React/RCTRootView.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  // Set the module name for the React Native app
   self.moduleName = @"memate";
-  // You can add your custom initial props in the dictionary below.
-  // They will be passed down to the ViewController used by React Native.
-  self.initialProps = @{};
+  
+  // Create a bridge with the source URL
+  NSURL *jsCodeLocation = [self bundleURL];
+  
+  // Create the root view with the bridge and module name
+  RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
+                                                  moduleName:self.moduleName
+                                           initialProperties:self.initialProps
+                                               launchOptions:launchOptions];
+  
+  // Set up the main window and view controller
+  self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+  UIViewController *rootViewController = [UIViewController new];
+  rootViewController.view = rootView;
+  self.window.rootViewController = rootViewController;
+  [self.window makeKeyAndVisible];
 
-  return [super application:application didFinishLaunchingWithOptions:launchOptions];
+  return YES;
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
